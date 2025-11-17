@@ -9,7 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class ResumeController extends AbstractController {
     #[Route('/resume')]
     public function resume(): Response {
-        return this->render('resume.html.twig');
+        return $this->render('resume.html.twig');
     }
 }
 
