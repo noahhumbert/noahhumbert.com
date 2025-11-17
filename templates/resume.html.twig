@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Resume</title>
+        <style>
+            /* The styling for the body portion of the page */
+            body {
+                padding: 0px;
+                margin: 0px;
+                background-color: white;
+            }
+
+            /* The styling for the header class which is used in the header of the page */
+            .header {
+                padding-left: 10px;
+                display: flex;
+                align-items: center;
+                background-color: black;
+                color: white;
+                height: 35px;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 12px;
+            }
+
+            /* The generic styling that applies to every "section" of the page. There will be many of these */
+            .section {
+                border-style: solid;
+                border-color: black;
+                border-width: medium;
+                background-color: white;
+                align-items: center;
+                gap: 20px
+            }
+
+            /* The styling of the eductation section */
+            #education {
+                margin-top: 10px;
+                margin-left: 10px;
+                width: 40%;
+                flex-wrap: wrap;
+            }
+
+            /* Styling of each school portion of the education section */
+            .school {
+                display: inline-flex;
+                vertical-align: top;
+                width: 100%;
+                height: 50%;
+                align-items: center;
+                box-sizing: border-box;
+            }
+
+            /* Styling on the southridge container */
+            #southridge {
+                background-color: #d02130;
+            }
+
+            #ivytech {
+                background-color: #006f53;
+            }
+
+            /* Styling of the School Logos */
+            .school_logo {
+                margin: 2px;
+                width: 80px;
+                height: 80px;
+                display: block;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            /* generic styling for the school text */
+            .school_text {
+                display: block;
+                width: 50%;
+                font-family: Arial, Helvetica, sans-serif;
+                margin-left: 10px;
+                text-align: center;
+                text-justify: inter-word;
+                width: 75%;
+                flex-shrink: 0;
+                
+            }
+
+            /* Styling for the school names */
+            .school_names {
+                font-size: 16px;
+            }
+            
+            /* Styling for the school descriptions */
+            .school_desc {
+                font-size: 12px;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Noah Humbert</h1>
+        </div>
+        <div class="section" id="education">
+            <div class="school" id="southridge">
+                <img class="school_logo" src="{{ asset('images/southridge.png') }}" alt="Southridge">
+                <div class="school_text">
+                    <h2 class="school_names">Southridge High School</h2>
+                    <p class="school_desc">Graduated High School with Academic Honors</p>
+                </div>
+            </div>
+            <div class="school" id="ivytech">
+                <img class="school_logo" src="{{ asset('images/ivytech.png') }}" alt="IvyTech">
+                <div class="school_text">
+                    <h2 class="school_names">Ivytech Community College</h2>
+                    <p class="school_desc">Obtained Associates in General Studies during High School</p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

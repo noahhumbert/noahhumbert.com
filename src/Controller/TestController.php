@@ -9,7 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class TestController extends AbstractController {
      #[Route('/test')]
      public function test(): Response {
-	  $hello = 'Hello World';
+	     $hello = 'Hello World';
 
           return $this->render('test.html.twig', [
                'hello' => $hello,
