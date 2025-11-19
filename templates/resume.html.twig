@@ -17,7 +17,13 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <!-- PHP LINK TO THIS PAGE GOES HERE -->
+                        <a class="nav-link active" aria-current="page" href=" {{ path('') }} ">Home</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href=" {{ path('resume') }} ">Resume</a>
                         </li>
                     </ul>
@@ -28,35 +34,68 @@
         <!-- Education Portion -->
         <div class="container">
             <div class="row">
-                <p class="fs-1 text-center">Education</p>
+                <p class=" text-center">Education</p>
             </div>
             <div class="row justify-content-center">
                 <div class="card-group col-8 ">
-                <div class="card">
-                        <img src=" {{ asset('images/southridge.png') }} " class="card-img-top" alt="Southridge High School Logo" style="max-height: 200px; max-width: 180px; margin: auto;">
-                        <div class="card-body">
-                            <h5 class="card-title text-center">Southridge High School</h5>
-                            <p class="card-text">GPA: 4.2 <br>
-                                                - Graudated with Academic Honors <br>
+                    <div class="card">
+                        <img src=" {{ asset('images/southridge.png') }} " class="card-img-top" alt="Southridge High School Logo" style="max-height: 200px; max-width: 175px; margin: auto;">
+                            <div class="card-body">
+                                <h5 class="card-title text-center">Southridge High School</h5>
+                                <p class="card-text">GPA: 4.2 <br>
+                                                - Graduated with Academic Honors <br>
                                                 - Varsity Soccer <br> 
                                                 - Business Professionals of America <br>
                                                 -> #4 Python Indiana 2023<br>
                                                 -> #3 Python Indiana 2025<br>
-                                                -> #3 Computer Animation Team Indiana 2025</p>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img src=" {{ asset('images/ivytech.png') }} " class="card-img-top" alt="IvyTech Community College Logo" style="max-height: 200px; max-width: 200px; margin: auto;">
-                            <div class="card-body">
-                                <h5 class="card-title text-center">IvyTech Community College</h5>
-                                <p class="card-text">GPA: 4.0 <br>
-                                                    - Obtained throughout High School <br>
-                                                    - Technical Certificate from <a href="https://mycollegecore.org/">ICC</a> <br> 
-                                                    - Associates Degree in General Studies 
+                                                -> #3 Computer Animation Team Indiana 2025
                                 </p>
                             </div>
+                    </div>
+                    <div class="card">
+                        <img src=" {{ asset('') }} " class="card-img-top" alt="Self Tought" style="max-height: 200px; max-width: 200px; margin: auto;">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Self Tought</h5>
+                            <p class="card-text">I've learned on my own as well! <br>
+                                                - Python Programming for 4 years <br>
+                                                - Circuit Engineering for 3 years <br> 
+                                                - Homelab Environment <br> 
+                                                -> Domain Controller <br> 
+                                                -> DHCP Server <br> 
+                                                -> Self-Hosted Website <br> 
+                            </p>
                         </div>
                     </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Career Portion -->
+        <div class="row">
+            <p class="fs-1 text-center">Career</p>
+        </div>
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                <img src="..." class="img-fluid rounded-start" alt="OFS Logo">
+                </div>
+                <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="fs-2">OFS</h5>
+                    <p class="fs-4">Technology Department<br>
+                                        - Helpdesk Intern: May 2023 - July 2025<br>
+                                        - Helpdesk Support: July 2025 - Present
+                                    </p>
+                    <p class="fs-6">Experience<br>
+                                    - Google Workspace Management
+                                    - Microsoft Active Directory Management
+                                    - Powershell Script Development
+                                    - Bash Script Development
+                                    - Windows and Unix Kernel Experience
+                                    - Server Management
+                    </p>
+                </div>
                 </div>
             </div>
         </div>
