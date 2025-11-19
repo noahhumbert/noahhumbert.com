@@ -7,7 +7,7 @@ use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ResumeController extends AbstractController {
-    #[Route('/resume'), name: 'resume']
+    #[Route('/resume', name: 'resume')]
     public function resume(): Response {
         return $this->render('resume.html.twig');
     }
