@@ -7,5 +7,101 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     </head>
     <body>
+        <!-- Top Navitation Bar-->
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href=" {{ path('/') }} ">Noah Humbert</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href=" {{ path('/test') }} ">Test</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Banner -->
+        <div class="container">
+            <div class="row">
+                <div class="col-11 justify-content-center">
+                    <img src=" {{ asset('images/banner.jpg') }} " alt="Banner Image">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-11 justify-content-center">
+                    <img src=" {{ asset('images/banner2.png') }} " alt="Banner Image">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-11 justify-content-center">
+                    <img src=" {{ asset('images/banner3.png') }} " alt="Banner Image">
+                </div>
+            </div>
+        </div>
+
+        <!-- Meat of the page -->
+        <div class="container">
+            <div class="row justify-content-center mb-2">
+                <div class="col-10">
+                    <div class="card" style="max-width: auto;">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src=" {{ asset('images/noah.jpg') }} " class="card-img-top" alt="Noah" style="max-height: 200px; max-width: 200px; display: block; margin: auto; margin-top: 15%;">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="fs-2">About Me</h5>
+                                    <p class="fs-5">
+                                        <!-- create writup here -->
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center mb-2">
+                <div class="col-10">
+                    <div class="card" style="max-width: auto;">
+                        <div class="row g-0">
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="fs-2">Experience</h5>
+                                    <p class="fs-5">
+                                        <!-- create writup here -->
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <img src=" {{ asset('images/noah.jpg') }} " class="card-img-top" alt="Noah" style="max-height: 200px; max-width: 200px; display: block; margin: auto; margin-top: 15%;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center mb-2">
+                <div class="col-10">
+                    <div class="card" style="max-width: auto;">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src=" {{ asset('images/noah.jpg') }} " class="card-img-top" alt="Noah" style="max-height: 200px; max-width: 200px; display: block; margin: auto; margin-top: 15%;">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="fs-2">Contact Me</h5>
+                                    <p class="fs-5">
+                                        <!-- create writup here -->
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
