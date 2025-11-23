@@ -7,7 +7,7 @@ use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class TestController extends AbstractController {
-     #[Route('/test')]
+     #[Route('/test', name: 'test')]
      public function test(): Response {
 	     $hello = 'Hello World';
 
