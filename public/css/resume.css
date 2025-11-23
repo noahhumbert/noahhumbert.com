@@ -1,12 +1,12 @@
 /* ---------------------------------- */
-/* Modern Minimal IT Theme - Purple Focus */
+/* Solid Purple Accent Theme */
 /* ---------------------------------- */
 
 :root {
     --bs-body-bg: #F8F9FA;       /* light page background */
-    --bs-body-color: #212529;    /* dark gray text */
-    --bs-primary: #5A4B7C;       /* deep muted purple accent */
-    --bs-primary-hover: #715FA0; /* hover purple */
+    --bs-body-color: #212529;    /* main text color */
+    --bs-primary: #5A4B7C;       /* solid deep purple */
+    --bs-primary-hover: #3C2E5B; /* hover deep purple */
     --bs-secondary: #6C757D;     /* neutral gray */
     --bs-light: #FFFFFF;          /* cards & surfaces */
     --bs-dark: #111214;           /* headings and strong text */
