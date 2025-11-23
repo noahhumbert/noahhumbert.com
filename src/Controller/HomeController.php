@@ -8,7 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class HomeController extends AbstractController {
     #[Route('/', name: 'home')]
-    public function resume(): Response {
+    public function home(): Response {
         return $this->render('home.html.twig');
     }
 }
