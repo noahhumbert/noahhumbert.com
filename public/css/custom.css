@@ -1,13 +1,12 @@
 /* ---------------------------------- */
-/* Custom Modern Minimal Theme for IT */
+/* Modern Minimal IT Theme - Purple Focus */
 /* ---------------------------------- */
 
-/* ---------- Palette ---------- */
 :root {
-    --bs-body-bg: #F8F9FA;       /* page background */
-    --bs-body-color: #212529;    /* main text */
-    --bs-primary: #4A4458;       /* deep gray-purple accent */
-    --bs-primary-hover: #5C536E; /* hover accent */
+    --bs-body-bg: #F8F9FA;       /* light page background */
+    --bs-body-color: #212529;    /* dark gray text */
+    --bs-primary: #5A4B7C;       /* deep muted purple accent */
+    --bs-primary-hover: #715FA0; /* hover purple */
     --bs-secondary: #6C757D;     /* neutral gray */
     --bs-light: #FFFFFF;          /* cards & surfaces */
     --bs-dark: #111214;           /* headings and strong text */
@@ -31,7 +30,7 @@ body {
 
 /* ---------- Headings ---------- */
 h1, h2, h3, h4, h5, h6, .fs-1, .fs-2, .fs-3, .fs-4 {
-    color: var(--bs-dark);
+    color: var(--bs-primary);
     font-weight: 600;
 }
 
@@ -80,6 +79,12 @@ a:hover, a:focus {
 .card-text {
     color: var(--bs-body-color);
 }
+.card a {
+    color: var(--bs-primary);
+}
+.card a:hover {
+    color: var(--bs-primary-hover);
+}
 
 /* ---------- Navbar ---------- */
 .navbar, .navbar-light, .navbar-dark {
@@ -97,20 +102,6 @@ hr {
     border: 0;
     border-top: 1px solid var(--gray-200);
     margin: 3rem 0;
-}
-
-/* ---------- Custom Containers ---------- */
-.container {
-    padding-left: 1rem;
-    padding-right: 1rem;
-}
-
-/* ---------- Links inside cards and small text ---------- */
-.card a {
-    color: var(--bs-primary);
-}
-.card a:hover {
-    color: var(--bs-primary-hover);
 }
 
 /* ---------- Utilities ---------- */
