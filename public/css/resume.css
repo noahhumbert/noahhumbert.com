@@ -1,11 +1,11 @@
 /* ---------------------------------- */
-/* Solid Purple Accent Theme */
+/* Resume Theme                       */
 /* ---------------------------------- */
 
 :root {
     --bs-body-bg: #F8F9FA;       /* light page background */
     --bs-body-color: #212529;    /* main text color */
-    --bs-primary: #5A4B7C;       /* solid deep purple */
+    --bs-primary: #111214;       /* solid deep purple */
     --bs-primary-hover: #3C2E5B; /* hover deep purple */
     --bs-secondary: #6C757D;     /* neutral gray */
     --bs-light: #FFFFFF;          /* cards & surfaces */
