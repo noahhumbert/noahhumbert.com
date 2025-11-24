@@ -19,7 +19,6 @@
     --gray-700: #495057;
     --gray-800: #343A40;
     --gray-900: #212529;
-    --deep-purp: #3C2E5B;
 }
 
 /* ---------- Body ---------- */
@@ -65,11 +64,6 @@ a:hover, a:focus {
     background-color: var(--gray-700);
     border-color: var(--gray-700);
     color: #FFFFFF;
-}
-
-/* -------- Containers ------- */
-.container {
-    background-color: var(--deep-purp)
 }
 
 /* ---------- Cards ---------- */
