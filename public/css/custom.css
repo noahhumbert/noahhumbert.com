@@ -3,13 +3,23 @@
 /* ---------------------------------- */
 
 :root {
-    --bs-body-bg: #F8F9FA;       /* light page background */
-    --bs-body-color: #212529;    /* main text color */
-    --bs-primary: #111214;       /* solid deep purple */
-    --bs-primary-hover: #3C2E5B; /* hover deep purple */
-    --bs-secondary: #6C757D;     /* neutral gray */
-    --bs-light: #FFFFFF;          /* cards & surfaces */
-    --bs-dark: #111214;           /* headings and strong text */
+    --bs-body-bg: #F8F9FA;             /* light page background */
+    --bs-body-color: #212529;          /* main text color */
+    --bs-primary: #111214;             /* solid deep purple */
+
+    --bs-button-bg: #3C2E5B;           /* button bg */
+    --bs-button-border: #111214;       /* border color */
+    --bs-button-text: #F8F9FA;         /* text color */
+
+    --bs-button-bg-hover: #F8F9FA;     /* button bg hover */
+    --bs-button-border-hover: #3C2E5B; /* button border hover */
+    --bs-button-text-hover: #3C2E5B;   /* button text color hover */
+
+    --bs-secondary: #6C757D;           /* neutral gray */
+    --bs-light: #FFFFFF;               /* cards & surfaces */
+    --bs-dark: #111214;                /* headings and strong text */
+
+    /* Grayscale */
     --gray-100: #F8F9FA;
     --gray-200: #E3E5E8;
     --gray-300: #DEE2E6;
@@ -36,24 +46,28 @@ h1, h2, h3, h4, h5, h6, .fs-1, .fs-2, .fs-3, .fs-4 {
 
 /* ---------- Links ---------- */
 a {
-    color: var(--bs-primary);
+    color: var(--bs-button-text);
+    background-color: var(--bs-button-bg);
+    border-color: var(--bs-button-border);
     text-decoration: none;
 }
 a:hover, a:focus {
-    color: var(--bs-primary-hover);
+    color: var(--bs-button-text-hover);
+    background-color: var(--bs-button-bg-hover);
+    border-color: var(--bs-button-border-hover);
     text-decoration: underline;
 }
 
 /* ---------- Buttons ---------- */
 .btn-primary {
-    background-color: var(--bs-primary);
-    border-color: var(--bs-primary);
-    color: #FFFFFF;
+    color: var(--bs-button-text);
+    background-color: var(--bs-button-bg);
+    border-color: var(--bs-button-border);
 }
 .btn-primary:hover {
-    background-color: var(--bs-primary-hover);
-    border-color: var(--bs-primary-hover);
-    color: #FFFFFF;
+    color: var(--bs-button-text-hover);
+    background-color: var(--bs-button-bg-hover);
+    border-color: var(--bs-button-border-hover);
 }
 .btn-secondary {
     background-color: var(--bs-secondary);
@@ -83,7 +97,7 @@ a:hover, a:focus {
     color: var(--bs-primary);
 }
 .card a:hover {
-    color: var(--bs-primary-hover);
+    color: var(--bs-button-text-hover);
 }
 
 /* ---------- Navbar ---------- */
@@ -94,7 +108,7 @@ a:hover, a:focus {
     color: var(--bs-primary);
 }
 .navbar .nav-link:hover {
-    color: var(--bs-primary-hover);
+    color: var(--bs-button-text-hover);
 }
 
 /* ---------- Section Dividers ---------- */
