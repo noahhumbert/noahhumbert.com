@@ -79,6 +79,31 @@ a:hover, a:focus {
     color: var(--bs-button-border);
 }
 
+/* ------- Custom Buttons ---- */
+.hero-button {
+    
+}
+
+/* ------- Custom Images ----- */
+.resume-noah {
+    max-height: 200px; 
+    max-width: 200px; 
+    margin: auto;
+}
+
+.resume-education {
+    max-height: 200px; 
+    max-width: 200px; 
+    margin: auto;
+}
+
+.resume-experience {
+    max-height: 200px; 
+    max-width: 200px; 
+    margin: auto;
+    display: block; 
+}
+
 /* ---------- Cards ---------- */
 .card {
     background-color: var(--bs-light);
