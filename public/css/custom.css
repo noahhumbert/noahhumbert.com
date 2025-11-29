@@ -55,7 +55,7 @@ a:hover, a:focus {
     color: var(--bs-button-text-hover);
     background-color: var(--bs-button-bg-hover);
     border-color: var(--bs-button-border-hover);
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 /* ---------- Buttons ---------- */
@@ -109,6 +109,20 @@ a:hover, a:focus {
 }
 .navbar .nav-link:hover {
     color: var(--bs-button-text-hover);
+}
+
+.navbar-brand {
+    color: var(--bs-primary);
+    background-color: var(--bs-body-bg);
+    border-color: var(--bs-body-bg);
+    text-decoration: none;
+}
+
+.navbar-brand:hover {
+    color: var(--bs-primary);
+    background-color: var(--bs-body-bg);
+    border-color: var(--bs-body-bg);
+    text-decoration: none;
 }
 
 /* ---------- Section Dividers ---------- */
