@@ -79,12 +79,11 @@ a:hover, a:focus {
     color: var(--bs-button-border);
 }
 
-/* ------- Custom Buttons ---- */
-.hero-button {
-    
+/* ------- Custom Images ----- */
+.banner-hero {
+    width: 100%;
 }
 
-/* ------- Custom Images ----- */
 .resume-noah {
     max-height: 200px; 
     max-width: 200px; 
