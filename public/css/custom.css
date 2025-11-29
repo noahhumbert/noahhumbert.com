@@ -10,7 +10,6 @@
     --bs-button-bg: #3C2E5B;           /* button bg */
     --bs-button-border: #111214;       /* border color */
     --bs-button-text: #F8F9FA;         /* text color */
-
     --bs-button-bg-hover: #F8F9FA;     /* button bg hover */
     --bs-button-border-hover: #3C2E5B; /* button border hover */
     --bs-button-text-hover: #3C2E5B;   /* button text color hover */
@@ -70,14 +69,14 @@ a:hover, a:focus {
     border-color: var(--bs-button-border-hover);
 }
 .btn-secondary {
-    background-color: var(--bs-secondary);
-    border-color: var(--bs-secondary);
-    color: #FFFFFF;
+    background-color: var(--bs-button-border);
+    border-color: var(--bs-button-border);
+    color: var(--bs-button-bg-hover);
 }
 .btn-secondary:hover {
-    background-color: var(--gray-700);
-    border-color: var(--gray-700);
-    color: #FFFFFF;
+    background-color: var(--bs-button-bg-hover);
+    border-color: var(--bs-button-border);
+    color: var(--bs-button-border);
 }
 
 /* ---------- Cards ---------- */
@@ -122,7 +121,7 @@ a:hover, a:focus {
     color: var(--bs-primary);
     background-color: var(--bs-body-bg);
     border-color: var(--bs-body-bg);
-    text-decoration: none;
+    text-decoration: underline;
 }
 
 /* ---------- Section Dividers ---------- */
