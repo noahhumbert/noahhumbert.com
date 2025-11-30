@@ -57,12 +57,12 @@ a:hover, a:focus {
     text-decoration: none;
 }
 
-.text-links {
+.text-links a {
     color: var(--bs-button-border);
     background-color: var(--bs-button-text);
     border-color: var(--bs-button-text);
 }
-.text-links:hover {
+.text-links a:hover {
     color: var(--bs-button-bg);
     background-color: var(--bs-button-text);
     border-color: var(--bs-button-text);
