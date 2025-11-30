@@ -44,19 +44,6 @@ h1, h2, h3, h4, h5, h6, .fs-1, .fs-2, .fs-3, .fs-4 {
 }
 
 /* ---------- Links ---------- */
-a {
-    color: var(--bs-button-text);
-    background-color: var(--bs-button-bg);
-    border-color: var(--bs-button-border);
-    text-decoration: none;
-}
-a:hover, a:focus {
-    color: var(--bs-button-text-hover);
-    background-color: var(--bs-button-bg-hover);
-    border-color: var(--bs-button-border-hover);
-    text-decoration: none;
-}
-
 .text-links a {
     color: var(--bs-button-border);
     background-color: var(--bs-button-text);
@@ -68,6 +55,19 @@ a:hover, a:focus {
     background-color: var(--bs-button-text);
     border-color: var(--bs-button-text);
     text-decoration: underline;
+}
+
+a {
+    color: var(--bs-button-text);
+    background-color: var(--bs-button-bg);
+    border-color: var(--bs-button-border);
+    text-decoration: none;
+}
+a:hover, a:focus {
+    color: var(--bs-button-text-hover);
+    background-color: var(--bs-button-bg-hover);
+    border-color: var(--bs-button-border-hover);
+    text-decoration: none;
 }
 
 /* ---------- Buttons ---------- */
