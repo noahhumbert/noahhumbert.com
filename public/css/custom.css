@@ -58,17 +58,18 @@ a:hover, a:focus {
 }
 
 a.text-links {
-    color: var(--bs-button-border);
+    color: var(--bs-button-bg);
     background-color: var(--bs-button-text);
     border-color: var(--bs-button-text);
     text-decoration: none;
 }
 a.text-links:hover {
-    color: var(--bs-button-bg);
+    color: var(--bs-button-border);
     background-color: var(--bs-button-text);
     border-color: var(--bs-button-text);
     text-decoration: underline;
 }
+
 
 /* ---------- Buttons ---------- */
 .btn-primary {
