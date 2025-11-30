@@ -61,11 +61,13 @@ a:hover, a:focus {
     color: var(--bs-button-border);
     background-color: var(--bs-button-text);
     border-color: var(--bs-button-text);
+    text-decoration: none;
 }
 .text-links a:hover {
     color: var(--bs-button-bg);
     background-color: var(--bs-button-text);
     border-color: var(--bs-button-text);
+    text-decoration: underline;
 }
 
 /* ---------- Buttons ---------- */
