@@ -11,18 +11,43 @@ RUN touch /etc/apache2/sites-available/noahhumbert.conf \
 ##
 # Package up our code inside artifact
 FROM base AS artifact
+# Copy the code to the proper directory
 COPY --chown=www-data:www-data ./ /var/www/noahhumbert.com
+# Moving working directory to the codebase
+WORKDIR /var/www/noahhumbert.com
 # Setup the blank .env file
-RUN touch /var/html/noahhumbert.com/.env \
-    && chown www-data:www-data /var/www/noahhumbert.com/.env \
-    && chmod ug+rw /var/www/noahhumbert.com/.env
-    
+RUN touch .env \
+    && chown .env \
+    && chmod ug+rw .env
+
 ##
-# Build the production environment
-FROM artifact as production
-# Copy the production apache2 config
-COPY ./apache/noahhumbert.prod.conf /etc/apache2/sites-available/noahhumbert.conf
+# Build the dev environment
+FROM artifact as dev
+# Dev Environment Variables
+ENV APP_ENV=dev \
+    APP_DEBUG=1
+# Copy the dev apache2 config
+COPY ./apache/noahhumbert.conf /etc/apache2/sites-available/noahhumbert.conf
+# Switch to root user
+USER root
+# Enable the apache config and install php dependencies
+RUN a2ensite noahhumbert.conf \
+    && composer install
 # Switch to www-data
 USER www-data
-# Install PHP dependencies
-RUN composer install --no-dev
+
+##
+# Build the production environment
+FROM artifact as prod
+# Prod Environment Variables
+ENV APP_ENV=prod \
+    APP_DEBUG=0
+# Copy the production apache2 config
+COPY ./apache/noahhumbert.conf /etc/apache2/sites-available/noahhumbert.conf
+# Switch to root user
+USER root
+# Enable the apache config and install php dependencies
+RUN a2ensite noahhumbert.conf \
+    && composer install --no-dev
+# Switch to www-data
+USER www-data
