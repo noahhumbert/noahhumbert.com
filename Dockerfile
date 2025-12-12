@@ -35,7 +35,8 @@ USER www-data
 FROM artifact as dev
 # Dev Environment Variables
 ENV APP_ENV=dev \
-    APP_DEBUG=1
+    APP_DEBUG=1 \
+    DEFAULT_URI=http://localhost
 # Copy the dev apache2 config
 COPY ./apache/noahhumbert.conf /etc/apache2/sites-available/noahhumbert.conf
 # Switch to root user
@@ -43,7 +44,8 @@ USER root
 # Enable the apache config, configure git for the directory, and install php dependencies
 RUN a2ensite noahhumbert.conf \
     && git config --global --add safe.directory /var/www/noahhumbert.com \
-    && composer install
+    && composer install \
+    && systemctl restart apache2
 # Switch to www-data
 USER www-data
 
@@ -52,7 +54,8 @@ USER www-data
 FROM artifact as prod
 # Prod Environment Variables
 ENV APP_ENV=prod \
-    APP_DEBUG=0
+    APP_DEBUG=0 \
+    DEFAULT_URI=http://localhost
 # Copy the production apache2 config
 COPY ./apache/noahhumbert.conf /etc/apache2/sites-available/noahhumbert.conf
 # Switch to root user
@@ -60,6 +63,7 @@ USER root
 # Enable the apache config, configure git for the directory, and install php dependencies
 RUN a2ensite noahhumbert.conf \
     && git config --global --add safe.directory /var/www/noahhumbert.com \
-    && composer install --no-dev
+    && composer install --no-dev \
+    && systemctl restart apache2
 # Switch to www-data
 USER www-data
