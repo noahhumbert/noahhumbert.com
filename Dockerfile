@@ -27,6 +27,10 @@ RUN apt-get update \
 RUN touch .env \
     && chown www-data:www-data .env \
     && chmod ug+rw .env
+# Add default environment variables
+ENV DEFAULT_URI=http://localhost \
+    DATABASE_URL=sqlite:///%kernel.project_dir%/var/data.db \
+    APP_SECRET=chageme
 # Switch to www-data
 USER www-data
 
@@ -35,8 +39,7 @@ USER www-data
 FROM artifact as dev
 # Dev Environment Variables
 ENV APP_ENV=dev \
-    APP_DEBUG=1 \
-    DEFAULT_URI=http://localhost
+    APP_DEBUG=1 
 # Copy the dev apache2 config
 COPY ./apache/noahhumbert.conf /etc/apache2/sites-available/noahhumbert.conf
 # Switch to root user
@@ -54,8 +57,7 @@ USER www-data
 FROM artifact as prod
 # Prod Environment Variables
 ENV APP_ENV=prod \
-    APP_DEBUG=0 \
-    DEFAULT_URI=http://localhost
+    APP_DEBUG=0 
 # Copy the production apache2 config
 COPY ./apache/noahhumbert.conf /etc/apache2/sites-available/noahhumbert.conf
 # Switch to root user
