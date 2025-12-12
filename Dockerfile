@@ -42,7 +42,7 @@ COPY ./apache/noahhumbert.conf /etc/apache2/sites-available/noahhumbert.conf
 USER root
 # Enable the apache config, configure git for the directory, and install php dependencies
 RUN a2ensite noahhumbert.conf \
-    && git config --global -add safe.directory /var/www/noahhumbert.com \
+    && git config --global --add safe.directory /var/www/noahhumbert.com \
     && composer install
 # Switch to www-data
 USER www-data
@@ -59,7 +59,7 @@ COPY ./apache/noahhumbert.conf /etc/apache2/sites-available/noahhumbert.conf
 USER root
 # Enable the apache config, configure git for the directory, and install php dependencies
 RUN a2ensite noahhumbert.conf \
-    && git config --global -add safe.directory /var/www/noahhumbert.com \
+    && git config --global --add safe.directory /var/www/noahhumbert.com \
     && composer install --no-dev
 # Switch to www-data
 USER www-data
