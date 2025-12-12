@@ -17,7 +17,7 @@ COPY --chown=www-data:www-data ./ /var/www/noahhumbert.com
 WORKDIR /var/www/noahhumbert.com
 # Setup the blank .env file
 RUN touch .env \
-    && chown .env \
+    && chown www-data:www-data .env \
     && chmod ug+rw .env
 
 ##
