@@ -47,8 +47,9 @@ USER root
 # Enable the apache config, configure git for the directory, and install php dependencies
 RUN a2ensite noahhumbert.conf \
     && git config --global --add safe.directory /var/www/noahhumbert.com \
-    && composer install \
-    && systemctl restart apache2
+    && composer install 
+# Run apache2
+CMD ["apache2-foreground"]
 # Switch to www-data
 USER www-data
 
@@ -65,7 +66,8 @@ USER root
 # Enable the apache config, configure git for the directory, and install php dependencies
 RUN a2ensite noahhumbert.conf \
     && git config --global --add safe.directory /var/www/noahhumbert.com \
-    && composer install --no-dev \
-    && systemctl restart apache2
+    && composer install --no-dev
+# Run apache2
+CMD ["apache2-foreground"]
 # Switch to www-data
 USER www-data
