@@ -8,6 +8,14 @@ framework:
     #esi: true
     #fragments: true
 
+    ## Configurations for the Reverse Proxy
+    # The proxy that my website trusts
+    trusted_proxies: '10.0.111.104'
+    # Shortcut for private ranges
+    trusted_proxies: 'private_ranges'
+    # Adding the headers passed in from the /etc/nginx/sites-available/default file on the proxy
+    trusted_headers: ['x-forwarded-for', 'x-forwarded-host', 'x-forwarded-proto', 'x-forwarded-port', 'x-forwarded-prefix']
+
 when@test:
     framework:
         test: true
