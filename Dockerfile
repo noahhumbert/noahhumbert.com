@@ -45,9 +45,7 @@ USER root
 # Enable the apache config, configure git for the directory, and install php dependencies
 RUN a2ensite noahhumbert.conf \
     && git config --global --add safe.directory /var/www/noahhumbert.com \
-    && composer install \
-    && chown -R www-data:www-data /var/www/noahhumbert.com/var \
-    && chmod -R u+rwX,g+rwX,o+rX /var/www/noahhumbert.com/var
+    && composer install 
 # Run apache2
 CMD ["apache2-foreground"]
 # Switch to www-data
@@ -64,9 +62,7 @@ USER root
 # Enable the apache config, configure git for the directory, and install php dependencies
 RUN a2ensite noahhumbert.conf \
     && git config --global --add safe.directory /var/www/noahhumbert.com \
-    && composer install \
-    && chown -R www-data:www-data /var/www/noahhumbert.com/var \
-    && chmod -R u+rwX,g+rwX,o+rX /var/www/noahhumbert.com/var
+    && composer install
 # Run apache2
 CMD ["apache2-foreground"]
 # Switch to www-data
@@ -83,9 +79,7 @@ USER root
 # Enable the apache config, configure git for the directory, install php dependencies, Give www-data permission to manipulate all files
 RUN a2ensite noahhumbert.conf \
     && git config --global --add safe.directory /var/www/noahhumbert.com \
-    && composer install --no-dev \
-    && chown -R www-data:www-data /var/www/noahhumbert.com/var \
-    && chmod -R u+rwX,g+rwX,o+rX /var/www/noahhumbert.com/var
+    && composer install --no-dev
 
 # Run apache2
 CMD ["apache2-foreground"]
