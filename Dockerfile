@@ -36,6 +36,25 @@ USER www-data
 
 ##
 # Build the dev environment
+FROM artifact as test
+# Dev Environment Variables
+ENV APP_ENV=prod \
+    APP_DEBUG=0
+# Copy the dev apache2 config
+COPY ./apache/noahhumbert.conf /etc/apache2/sites-available/noahhumbert.conf
+# Switch to root user
+USER root
+# Enable the apache config, configure git for the directory, and install php dependencies
+RUN a2ensite noahhumbert.conf \
+    && git config --global --add safe.directory /var/www/noahhumbert.com \
+    && composer install 
+# Run apache2
+CMD ["apache2-foreground"]
+# Switch to www-data
+USER www-data
+
+##
+# Build the dev environment
 FROM artifact as dev
 # Dev Environment Variables
 ENV APP_ENV=dev \
