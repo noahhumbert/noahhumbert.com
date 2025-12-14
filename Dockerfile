@@ -5,8 +5,8 @@ FROM php:8.3-apache AS base
 USER root
 
 # Create the main apache2 conf file and delete the default
-RUN touch /etc/apache2/sites-available/noahhumbert.conf \
-    && rm -f /etc/apache2/sites-available/000-default.conf
+COPY ./apache/noahhumbert.conf /etc/apache2/sites-available/noahhumbert.conf
+RUN rm -f /etc/apache2/sites-available/000-default.conf
 
 ##
 # Package up our code inside artifact
@@ -40,14 +40,14 @@ FROM artifact as test
 # Dev Environment Variables
 ENV APP_ENV=prod \
     APP_DEBUG=0
-# Copy the dev apache2 config
-COPY ./apache/noahhumbert.conf /etc/apache2/sites-available/noahhumbert.conf
 # Switch to root user
 USER root
 # Enable the apache config, configure git for the directory, and install php dependencies
 RUN a2ensite noahhumbert.conf \
     && git config --global --add safe.directory /var/www/noahhumbert.com \
-    && composer install 
+    && composer install \
+    && chown -R www-data:www-data /var/www/noahhumbert.com/var \
+    && chmod -R u+rwX,g+rwX,o+rX /var/www/noahhumbert.com/var
 # Run apache2
 CMD ["apache2-foreground"]
 # Switch to www-data
@@ -59,14 +59,14 @@ FROM artifact as dev
 # Dev Environment Variables
 ENV APP_ENV=dev \
     APP_DEBUG=1 
-# Copy the dev apache2 config
-COPY ./apache/noahhumbert.conf /etc/apache2/sites-available/noahhumbert.conf
 # Switch to root user
 USER root
 # Enable the apache config, configure git for the directory, and install php dependencies
 RUN a2ensite noahhumbert.conf \
     && git config --global --add safe.directory /var/www/noahhumbert.com \
-    && composer install 
+    && composer install \
+    && chown -R www-data:www-data /var/www/noahhumbert.com/var \
+    && chmod -R u+rwX,g+rwX,o+rX /var/www/noahhumbert.com/var
 # Run apache2
 CMD ["apache2-foreground"]
 # Switch to www-data
@@ -78,14 +78,15 @@ FROM artifact as prod
 # Prod Environment Variables
 ENV APP_ENV=prod \
     APP_DEBUG=0 
-# Copy the production apache2 config
-COPY ./apache/noahhumbert.conf /etc/apache2/sites-available/noahhumbert.conf
 # Switch to root user
 USER root
-# Enable the apache config, configure git for the directory, and install php dependencies
+# Enable the apache config, configure git for the directory, install php dependencies, Give www-data permission to manipulate all files
 RUN a2ensite noahhumbert.conf \
     && git config --global --add safe.directory /var/www/noahhumbert.com \
-    && composer install --no-dev
+    && composer install --no-dev \
+    && chown -R www-data:www-data /var/www/noahhumbert.com/var \
+    && chmod -R u+rwX,g+rwX,o+rX /var/www/noahhumbert.com/var
+
 # Run apache2
 CMD ["apache2-foreground"]
 # Switch to www-data
