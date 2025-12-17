@@ -36,7 +36,7 @@ USER www-data
 
 ##
 # Build the dev environment
-FROM artifact as test
+FROM artifact AS test
 # Dev Environment Variables
 ENV APP_ENV=prod \
     APP_DEBUG=0
@@ -53,7 +53,7 @@ USER www-data
 
 ##
 # Build the dev environment
-FROM artifact as dev
+FROM artifact AS dev
 # Dev Environment Variables
 ENV APP_ENV=dev \
     APP_DEBUG=1 
@@ -70,7 +70,7 @@ USER www-data
 
 ##
 # Build the production environment
-FROM artifact as prod
+FROM artifact AS prod
 # Prod Environment Variables
 ENV APP_ENV=prod \
     APP_DEBUG=0 
