@@ -66,7 +66,7 @@ USER root
 # Enable the apache config, configure git for the directory, install php dependencies, Give www-data permission to manipulate all files
 RUN a2ensite noahhumbert.conf \
     && git config --global --add safe.directory /var/www/noahhumbert.com \
-    && composer install --no-dev
+    && composer install
 # Run apache2
 CMD ["apache2-foreground"]
 # Switch to www-data
