@@ -5,7 +5,7 @@ services:
     build:
       context: .
       target: test
-    container_name: symfony_app_test
+    container_name: test
     ports:
       - "8080:80"
     volumes:

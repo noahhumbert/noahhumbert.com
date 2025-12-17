@@ -5,7 +5,7 @@ services:
     build:
       context: .
       target: dev
-    container_name: symfony_app_dev
+    container_name: dev
     ports:
       - "8000:80"
     volumes:
