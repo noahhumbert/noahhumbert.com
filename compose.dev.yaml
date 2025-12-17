@@ -4,6 +4,7 @@ services:
       context: .
       target: dev
     image: noahhumbert:dev
+    env_file:
       - .env.dev
     container_name: dev
     ports:
