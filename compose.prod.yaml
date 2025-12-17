@@ -4,6 +4,8 @@ services:
       context: .
       target: prod
     image: noahhumbert:prod
+    env_file:
+      - .env.prod
     container_name: prod
     ports:
       - "80:80"
