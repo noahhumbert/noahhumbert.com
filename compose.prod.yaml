@@ -1,11 +1,10 @@
-version: '3.9'
-
 services:
   app:
     build:
       context: .
       target: prod
-    container_name: symfony_app_prod
+    image: noahhumbert:prod
+    container_name: prod
     ports:
       - "80:80"
     volumes: []  # does not change the container code as local changes are made

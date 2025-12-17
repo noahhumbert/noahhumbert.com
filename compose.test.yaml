@@ -2,10 +2,10 @@ services:
   app:
     build:
       context: .
-      target: dev
-    image: noahhumbert:dev
-    container_name: dev
+      target: test
+    image: noahhumbert:test
+    container_name: test
     ports:
-      - "8000:80"
+      - "8080:80"
     volumes:
       - ./:/var/www/noahhumbert.com
