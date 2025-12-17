@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
         <a class="navbar-brand" href=" {{ path('home') }} ">
-            <img class="img-fluid" src=" {{ asset('images/logo.png') }} " alt="Banner Hero" style="width: 50px; height: 50px;">
+            <img class="img-fluid" src=" {{ asset('images/logo.png') }} " alt="Banner Hero" style="width: 50px; height: 50px;">Noah Humbert
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -11,10 +11,8 @@
                 <li class="nav-item">
                     <a class="nav-link active fw-medium" aria-current="page" href=" {{ path('projects') }} ">Projects</a>
                 </li>
-                <li class="nav-item align-self-end">
-                    <a class="btn btn-primary" href=" {{ path('signin') }} " role="button">Sign In</a>
-                </li>
             </ul>
         </div>
+        <a class="btn btn-primary align-self-end" href=" {{ path('signin') }} " role="button">Sign In</a>
     </div>
 </nav>
