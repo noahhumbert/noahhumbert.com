@@ -3,6 +3,7 @@ services:
     build:
       context: .
       target: prod
+    image: noahhumbert:prod
     container_name: prod
     ports:
       - "80:80"

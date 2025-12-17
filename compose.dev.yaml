@@ -3,6 +3,7 @@ services:
     build:
       context: .
       target: dev
+    image: noahhumbert:dev
     container_name: dev
     ports:
       - "8000:80"

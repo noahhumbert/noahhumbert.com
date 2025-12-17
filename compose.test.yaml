@@ -3,6 +3,7 @@ services:
     build:
       context: .
       target: test
+    image: noahhumbert:test
     container_name: test
     ports:
       - "8080:80"
