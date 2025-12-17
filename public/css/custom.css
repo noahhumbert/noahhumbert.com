@@ -3,20 +3,22 @@
 /* ---------------------------------- */
 
 :root {
-    --bs-body-bg: #F8F9FA;             /* light page background */
-    --bs-body-color: #212529;          /* main text color */
-    --bs-primary: #111214;             /* solid deep purple */
+    --deep-purple: #3C2E5B;
+    --black: #111214;
 
-    --bs-button-bg: #3C2E5B;           /* button bg */
-    --bs-button-border: #111214;       /* border color */
-    --bs-button-text: #F8F9FA;         /* text color */
-    --bs-button-bg-hover: #F8F9FA;     /* button bg hover */
-    --bs-button-border-hover: #3C2E5B; /* button border hover */
-    --bs-button-text-hover: #3C2E5B;   /* button text color hover */
+    --bs-body-bg: #F8F9FA;                      /* light page background */
+    --bs-body-color: #212529;                   /* main text color */
+    --bs-primary: var(--black);                   /* solid deep purple */
 
-    --bs-secondary: #6C757D;           /* neutral gray */
-    --bs-light: #FFFFFF;               /* cards & surfaces */
-    --bs-dark: #111214;                /* headings and strong text */
+    --bs-button-bg: var(--deep-purple);           /* button bg */
+    --bs-button-border: var(--black);             /* border color */
+    --bs-button-text: #F8F9FA;                  /* text color */
+    --bs-button-bg-hover: #F8F9FA;              /* button bg hover */
+    --bs-button-border-hover: var(--deep-purple); /* button border hover */
+    --bs-button-text-hover: var(--deep-purple);   /* button text color hover */
+
+    --bs-secondary: #6C757D;                    /* neutral gray */
+    --bs-light: #FFFFFF;                        /* cards & surfaces */
 
     /* Grayscale */
     --gray-100: #F8F9FA;
@@ -138,10 +140,10 @@ a.text-links:hover {
     background-color: var(--bs-light);
 }
 .navbar .nav-link {
-    color: var(--bs-primary);
+    color: var(--deep-purple);
 }
 .navbar .nav-link:hover {
-    color: var(--bs-button-text-hover);
+    color: var(--black);
 }
 
 .navbar-brand {
