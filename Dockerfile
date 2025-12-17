@@ -27,19 +27,12 @@ RUN apt-get update \
 RUN touch .env \
     && chown www-data:www-data .env \
     && chmod ug+rw .env
-# Add default environment variables
-ENV DEFAULT_URI=http://localhost \
-    DATABASE_URL=sqlite:///%kernel.project_dir%/var/data.db \
-    APP_SECRET=chageme
 # Switch to www-data
 USER www-data
 
 ##
 # Build the dev environment
 FROM artifact AS test
-# Dev Environment Variables
-ENV APP_ENV=prod \
-    APP_DEBUG=0
 # Switch to root user
 USER root
 # Enable the apache config, configure git for the directory, and install php dependencies
@@ -54,9 +47,6 @@ USER www-data
 ##
 # Build the dev environment
 FROM artifact AS dev
-# Dev Environment Variables
-ENV APP_ENV=dev \
-    APP_DEBUG=1 
 # Switch to root user
 USER root
 # Enable the apache config, configure git for the directory, and install php dependencies
@@ -71,9 +61,6 @@ USER www-data
 ##
 # Build the production environment
 FROM artifact AS prod
-# Prod Environment Variables
-ENV APP_ENV=prod \
-    APP_DEBUG=0 
 # Switch to root user
 USER root
 # Enable the apache config, configure git for the directory, install php dependencies, Give www-data permission to manipulate all files

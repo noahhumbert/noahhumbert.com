@@ -4,6 +4,7 @@ services:
       context: .
       target: dev
     image: noahhumbert:dev
+      - .env.dev
     container_name: dev
     ports:
       - "8000:80"
