@@ -67,7 +67,6 @@ USER root
 RUN a2ensite noahhumbert.conf \
     && git config --global --add safe.directory /var/www/noahhumbert.com \
     && composer install --no-dev
-
 # Run apache2
 CMD ["apache2-foreground"]
 # Switch to www-data
