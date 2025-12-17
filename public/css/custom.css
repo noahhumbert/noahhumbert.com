@@ -141,9 +141,11 @@ a.text-links:hover {
 }
 .navbar .nav-link {
     color: var(--deep-purple);
+    text-decoration: none;
 }
 .navbar .nav-link:hover {
     color: var(--black);
+    text-decoration: underline;
 }
 
 .navbar-brand {
