@@ -13,11 +13,17 @@ security:
             lazy: true
             provider: users_in_memory
 
+            login_path: signin
+            check_path: signin
+
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#the-firewall
 
             # https://symfony.com/doc/current/security/impersonating_user.html
             # switch_user: true
+        secured_area:
+            form_login:
+                enable_csrf: true
 
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used

@@ -8,7 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class TestController extends AbstractController {
      #[Route('/test', name: 'test')]
-     public function test(): Response {
+     public function index(): Response {
 	     $hello = 'Hello World';
 
           return $this->render('test.html.twig', [
