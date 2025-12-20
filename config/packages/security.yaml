@@ -18,6 +18,10 @@ security:
                 check_path: signin
                 enable_csrf: true
 
+            login_throttling:
+                max_attempt: 3
+
+
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#the-firewall
 
