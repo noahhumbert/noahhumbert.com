@@ -14,12 +14,16 @@ security:
             provider: users_in_memory
 
             form_login:
-                login_path: signin
-                check_path: signin
                 enable_csrf: true
 
             login_throttling:
                 max_attempts: 3
+
+            logout:
+                delete_cookies:
+                    cookie1-name: null
+                    cookie2-name:
+                        path: '/dashboard'
 
 
             # activate different ways to authenticate
