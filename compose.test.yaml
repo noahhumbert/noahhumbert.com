@@ -1,5 +1,5 @@
 services:
-  app:
+  php:
     build:
       context: .
       target: test

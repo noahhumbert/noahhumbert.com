@@ -13,6 +13,19 @@ security:
             lazy: true
             provider: users_in_memory
 
+            form_login:
+                enable_csrf: true
+
+            login_throttling:
+                max_attempts: 3
+
+            logout:
+                delete_cookies:
+                    cookie1-name: null
+                    cookie2-name:
+                        path: '/dashboard'
+
+
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#the-firewall
 

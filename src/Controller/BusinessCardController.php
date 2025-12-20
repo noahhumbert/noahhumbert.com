@@ -8,7 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class BusinessCardController extends AbstractController {
     #[Route('/business-card', name: 'business-card')]
-    public function business_card(): Response {
+    public function index(): Response {
         return $this->render('business-card.html.twig');
     }
 }

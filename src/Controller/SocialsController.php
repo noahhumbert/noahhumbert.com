@@ -8,7 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class SocialsController extends AbstractController {
     #[Route('/socials', name: 'socials')]
-    public function socials(): Response {
+    public function index(): Response {
         return $this->render('socials.html.twig');
     }
 }
