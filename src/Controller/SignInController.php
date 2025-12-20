@@ -16,11 +16,11 @@ class SignInController extends AbstractController {
         //last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
         
-        return $this->render('signin.html.twig'), [
+        return $this->render('signin.html.twig', [
             'controller_name' => 'SignInController',
             'last_username' => $lastUsername,
             'error' => $error,
-        ];
+        ]);
     }
 }
 
