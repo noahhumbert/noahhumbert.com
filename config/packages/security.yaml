@@ -19,7 +19,7 @@ security:
                 enable_csrf: true
 
             login_throttling:
-                max_attempt: 3
+                max_attempts: 3
 
 
             # activate different ways to authenticate
