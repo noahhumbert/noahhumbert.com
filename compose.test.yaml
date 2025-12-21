@@ -11,3 +11,9 @@ services:
       - "8080:80"
     volumes:
       - ./:/var/www/noahhumbert.com
+    networks:
+      - network
+
+networks:
+  network:
+    external: true
