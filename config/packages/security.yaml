@@ -31,6 +31,8 @@ security:
                 # target: app_any_route
                 # where to redirect after logout
                 # target: app_any_route
+                # where to redirect after logout
+                # target: app_any_route
 
 
             # activate different ways to authenticate
