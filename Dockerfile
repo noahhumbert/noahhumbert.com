@@ -20,7 +20,7 @@ WORKDIR /var/www/noahhumbert.com
 # Setup Composer
 RUN apt-get update \
     && apt-get install -y unzip git \
-    && apt-get install php-mysql \
+    && apt-get install -y php-mysql \
     && php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
     && php composer-setup.php --install-dir=/usr/local/bin --filename=composer \
     && php -r "unlink('composer-setup.php');"
