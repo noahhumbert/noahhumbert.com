@@ -1,20 +1,42 @@
-{% extends 'base.html.twig' %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Sign In</title>
+        {% include 'partials/_head.html.twig' %}
+    </head>
+    <body>
+        <!-- Top Navitation Bar-->
+        {% include 'partials/_navbar.html.twig' %}
 
-{% block title %}Hello LoginController!{% endblock %}
+        <!-- Error Message -->
+        {% if error %}
+            <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% endif %}
 
-{% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+        <!-- Sign in form -->
+        <div class="container mt-4">
+            <div class="row justify-content-center">
+                <div class="col-7 card">
+                    <p class="fs-2 text-center mt-2">Authentication</p>
+                    <form class="mb-4 mx-2" action=" {{ path('app_login') }} " method="post">
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="email" name="_username" aria-describedby="emailHelp" value="{{ last_username }}" required>
+                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password" name="_password" required>
+                        </div>
+                        <input type="hidden" name="_target_path" value="/dashboard">
+                        <input type="hidden" name="_csrf_token" data-controller="csrf-protection" value="{{ csrf_token('authenticate') }}">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>/var/www/noahhumbert.com/src/Controller/LoginController.php</code></li>
-        <li>Your template at <code>/var/www/noahhumbert.com/templates/login/index.html.twig</code></li>
-    </ul>
-</div>
-{% endblock %}
+        <!-- Javascript -->
+        <script src="{{ asset('bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    </body>
+</html>
