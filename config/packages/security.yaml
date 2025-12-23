@@ -19,15 +19,18 @@ security:
 
             form_login:
                 enable_csrf: true
+                login_path: app_login
+                check_path: app_login
 
             login_throttling:
                 max_attempts: 3
 
             logout:
-                delete_cookies:
-                    cookie1-name: null
-                    cookie2-name:
-                        path: '/dashboard'
+                path: app_logout
+                # where to redirect after logout
+                # target: app_any_route
+                # where to redirect after logout
+                # target: app_any_route
 
 
             # activate different ways to authenticate
