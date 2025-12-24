@@ -85,8 +85,8 @@ a.text-links:hover {
     border-color: var(--bs-button-border-hover);
 }
 .btn-secondary {
-    background-color: var(--bs-button-border);
-    border-color: var(--bs-button-border);
+    background-color: var(--ba);
+    border-color: var(--bs-body-bg);
     color: var(--bs-button-bg-hover);
 }
 .btn-secondary:hover {
