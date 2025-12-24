@@ -126,12 +126,12 @@ a.text-links:hover {
 .btn-secondary {
     background-color: var(--bs-button-border);
     border-color: var(--bs-button-border);
-    color: var(--bs-button-bg-hover);
+    color: var(--bs-body-bg);
 }
 .btn-secondary:hover {
     background-color: var(--bs-button-bg-hover);
     border-color: var(--bs-button-border);
-    color: var(--bs-body-bg);
+    color: var(--bs-button-border);
 }
 
 /* ---------- Navbar ---------- */
