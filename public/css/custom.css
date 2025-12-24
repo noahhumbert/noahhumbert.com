@@ -131,7 +131,7 @@ a.text-links:hover {
 .btn-secondary:hover {
     background-color: var(--bs-button-bg-hover);
     border-color: var(--bs-button-border);
-    color: var(--bs-button-border);
+    color: var(--bs-body-bg);
 }
 
 /* ---------- Navbar ---------- */
