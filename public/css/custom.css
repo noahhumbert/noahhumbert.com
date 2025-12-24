@@ -105,10 +105,10 @@ a.text-links:hover {
 .card-text {
     color: var(--bs-body-color);
 }
-.card a {
+.card-a {
     color: var(--bs-primary);
 }
-.card a:hover {
+.card-a:hover {
     color: var(--bs-button-text-hover);
 }
 
