@@ -13,14 +13,24 @@
             <!-- Add Role to User -->
             <div class="col-3">
                 <div class="card" style="max-width: auto;">
-                    <form>
-                        <label for="email">Email: </label>
-                        <input type="text" id="email">
-                        <label for="role">Role: </label>
-                        <select id="Role" name="role">
-                            <option value="ROLE_ADMIN">ROLE_ADMIN</option>
-                        </select>
-                    </form>
+                    {{ form_start(addRoleForm, {'attr': {'class': 'mb-4 mx-2'}}) }}
+
+                        <div class="mb-3">
+                            {{ form_label(addRoleForm.email, 'Email address') }}
+                            {{ form_widget(addRoleForm.email, {'attr': {'class': 'form-control', 'id': 'email'}}) }}
+                            {{ form_errors(addRoleForm.email) }}
+                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                        </div>
+
+                        <div class="mb-3">
+                            {{ form_label(addRoleForm.role, 'Role') }}
+                            {{ form_widget(addRoleForm.role, {'attr': {'class': 'form-select', 'id': 'role'}}) }}
+                            {{ form_errors(addRoleForm.role) }}
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100">Register</button>
+
+                    {{ form_end(addRoleForm) }}
                 </div>
             </div>
         </div>
