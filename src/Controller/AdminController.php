@@ -97,8 +97,8 @@ class AdminController extends AbstractController
         }
 
         return $this->render('admin.html.twig', [
-            'addRoleForm' => $form->createView(),
-            'removeRoleForm' => $form->createView(),
+            'addRoleForm' => $addRoleForm->createView(),
+            'removeRoleForm' => $removeRoleForm->createView(),
         ]);
     }
 }
