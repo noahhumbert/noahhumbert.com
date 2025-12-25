@@ -13,7 +13,7 @@
             <!-- Add Role to User -->
             <div class="col-3">
                 <div class="card mx-3 mt-3" style="max-width: auto;">
-                    <p class="fs-3">Add Role</p>
+                    <p class="fs-3 mt-1 text-center">Add Role</p>
                     {{ form_start(addRoleForm, {'attr': {'class': 'mb-4 mx-2'}}) }}
 
                         <div class="mb-3">
@@ -28,9 +28,33 @@
                             {{ form_errors(addRoleForm.role) }}
                         </div>
 
-                        <button type="submit" class="btn btn-primary w-100">Change</button>
+                        <button type="submit" class="btn btn-primary w-100">Add</button>
 
                     {{ form_end(addRoleForm) }}
+                </div>
+            </div>
+
+            <!-- Remove Role to User -->
+            <div class="col-3">
+                <div class="card mx-3 mt-3" style="max-width: auto;">
+                    <p class="fs-3 mt-1 text-center">Remove Role</p>
+                    {{ form_start(removeRoleForm, {'attr': {'class': 'mb-4 mx-2'}}) }}
+
+                        <div class="mb-3">
+                            {{ form_label(removeRoleForm.email, 'Email address') }}
+                            {{ form_widget(removeRoleForm.email, {'attr': {'class': 'form-control', 'id': 'email'}}) }}
+                            {{ form_errors(removeRoleForm.email) }}
+                        </div>
+
+                        <div class="mb-3">
+                            {{ form_label(removeRoleForm.role, 'Role') }}
+                            {{ form_widget(removeRoleForm.role, {'attr': {'class': 'form-select', 'id': 'role'}}) }}
+                            {{ form_errors(removeRoleForm.role) }}
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100">Remove</button>
+
+                    {{ form_end(removeRoleForm) }}
                 </div>
             </div>
         </div>
