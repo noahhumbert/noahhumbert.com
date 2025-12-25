@@ -60,7 +60,7 @@ class AdminController extends AbstractController
             $user = $em->getRepository(User::class)->findOneBy(['email' => $email]);
 
             if ($user) {
-                $roles = array_diff($user->getRoles(), [$role]);
+                $roles = array_values(array_diff($user->getRoles(), [$role]));
 
                 // Symfony requires ROLE_USER at minimum
                 if (empty($roles)) {
