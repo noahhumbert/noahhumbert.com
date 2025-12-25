@@ -20,6 +20,7 @@ class AddRoleType extends AbstractType
             ->add('role', ChoiceType::class, [
                 'choices' => [
                     'ROLE_ADMIN'   => 'ROLE_ADMIN',
+                    'ROLE_USER'    => 'ROLE_USER',
                 ],
                 'required' => true,
                 'label' => false,
