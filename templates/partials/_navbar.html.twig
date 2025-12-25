@@ -17,7 +17,7 @@
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                 <a class="btn btn-primary align-self-end" href=" {{ path('login') }} " role="button">Sign In</a>
             </div>
-        {% else if is_granted('ROLE_ADMIN') %}
+        {% elseif is_granted('ROLE_ADMIN') %}
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                 <a class="btn btn-primary align-self-end" href=" {{ path('dashboard') }} " role="button">Dashboard</a>
                 <a class="btn btn-primary align-self-end" href=" {{ path('admin') }} " role="button">Admin</a>
