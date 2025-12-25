@@ -1,5 +1,5 @@
 <?php
-// /src/Controller/AdminController.php
+
 namespace App\Controller;
 
 use App\Entity\User;
@@ -11,8 +11,10 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 
-class AdminController extends AbstractController {
-    public function addRole(
+class AdminController extends AbstractController
+{
+    #[Route('/admin', name: 'admin')]
+    public function admin(
         Request $request,
         EntityManagerInterface $em
     ): Response {
@@ -32,8 +34,7 @@ class AdminController extends AbstractController {
             if (!$user) {
                 $this->addFlash('danger', 'User not found.');
             } else {
-                // ADD role (not overwrite)
-                $roles = $user->getRoles();
+                $roles   = $user->getRoles();
                 $roles[] = $role;
 
                 $user->setRoles(array_unique($roles));
@@ -42,14 +43,11 @@ class AdminController extends AbstractController {
                 $this->addFlash('success', 'Role added successfully.');
             }
 
-            return $this->redirectToRoute('admin_add_role');
+            return $this->redirectToRoute('admin');
         }
-    
-    
-    #[Route('/admin', name: 'admin')]
-    public function index(): Response {
-        return $this->render('admin.html.twig');
+
+        return $this->render('admin.html.twig', [
+            'addRoleForm' => $form->createView(),
+        ]);
     }
 }
-
-?>
