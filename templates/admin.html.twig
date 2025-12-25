@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Admin</title>
+        {% include 'partials/_head.html.twig' %}
+    </head>
+    <body>
+        <!-- Navbar -->
+        {% include 'partials/_navbar.html.twig' %}
+    
+        <!-- Admin Functions -->
+        <div class="container my-5 justify-content-center">
+            <div class="row">
+                <!-- Add Role to User -->
+                <div class="col-3">
+                    <div class="card mx-3 mt-3" style="max-width: auto;">
+                        <p class="fs-3 mt-1 text-center">Add Role</p>
+                        {{ form_start(addRoleForm, {'attr': {'class': 'mb-4 mx-2'}}) }}
+
+                            <div class="mb-3">
+                                {{ form_label(addRoleForm.email, 'Email address') }}
+                                {{ form_widget(addRoleForm.email, {'attr': {'class': 'form-control', 'id': 'email'}}) }}
+                                {{ form_errors(addRoleForm.email) }}
+                            </div>
+
+                            <div class="mb-3">
+                                {{ form_label(addRoleForm.role, 'Role') }}
+                                {{ form_widget(addRoleForm.role, {'attr': {'class': 'form-select', 'id': 'role'}}) }}
+                                {{ form_errors(addRoleForm.role) }}
+                            </div>
+
+                            <button type="submit" name="add_role_submit" class="btn btn-primary w-100">Add</button>
+
+                        {{ form_end(addRoleForm) }}
+                    </div>
+                </div>
+
+                <!-- Remove Role to User -->
+                <div class="col-3">
+                    <div class="card mx-3 mt-3" style="max-width: auto;">
+                        <p class="fs-3 mt-1 text-center">Remove Role</p>
+                        {{ form_start(removeRoleForm, {'attr': {'class': 'mb-4 mx-2'}}) }}
+
+                            <div class="mb-3">
+                                {{ form_label(removeRoleForm.email, 'Email address') }}
+                                {{ form_widget(removeRoleForm.email, {'attr': {'class': 'form-control', 'id': 'email'}}) }}
+                                {{ form_errors(removeRoleForm.email) }}
+                            </div>
+
+                            <div class="mb-3">
+                                {{ form_label(removeRoleForm.role, 'Role') }}
+                                {{ form_widget(removeRoleForm.role, {'attr': {'class': 'form-select', 'id': 'role'}}) }}
+                                {{ form_errors(removeRoleForm.role) }}
+                            </div>
+
+                            <button type="submit" name="remove_role_submit" class="btn btn-primary w-100">Remove</button>
+
+                        {{ form_end(removeRoleForm) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Javascript -->
+        <script src="{{ asset('bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    </body>
+</html>
