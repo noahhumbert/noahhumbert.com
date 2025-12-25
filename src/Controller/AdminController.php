@@ -75,7 +75,7 @@ class AdminController extends AbstractController
                 $this->addFlash('danger', 'User not found.');
             }
 
-            return $this->redirectToRoute('admin_dashboard');
+            return $this->redirectToRoute('admin');
         }
 
         return $this->render('admin.html.twig', [
