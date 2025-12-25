@@ -60,9 +60,15 @@ class AdminController extends AbstractController
             $user = $em->getRepository(User::class)->findOneBy(['email' => $email]);
 
             if ($user) {
+                // prevent self-admin removal
+                if ($user === $this->getUser() && $role === 'ROLE_ADMIN') {
+                    $this->addFlash('warning', 'You cannot remove your own admin role.');
+                    return $this->redirectToRoute('admin');
+                }
+
                 $roles = array_values(array_diff($user->getRoles(), [$role]));
 
-                // Symfony requires ROLE_USER at minimum
+                // Ensure at least ROLE_USER
                 if (empty($roles)) {
                     $roles = ['ROLE_USER'];
                 }
@@ -77,6 +83,7 @@ class AdminController extends AbstractController
 
             return $this->redirectToRoute('admin');
         }
+
 
         return $this->render('admin.html.twig', [
             'addRoleForm' => $form->createView(),
