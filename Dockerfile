@@ -20,6 +20,7 @@ WORKDIR /var/www/noahhumbert.com
 # Setup Composer
 RUN apt-get update \
     && apt-get install -y unzip git \
+    && docker-php-ext-install pdo pdo_mysql \
     && php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
     && php composer-setup.php --install-dir=/usr/local/bin --filename=composer \
     && php -r "unlink('composer-setup.php');"
@@ -38,7 +39,8 @@ USER root
 # Enable the apache config, configure git for the directory, and install php dependencies
 RUN a2ensite noahhumbert.conf \
     && git config --global --add safe.directory /var/www/noahhumbert.com \
-    && composer install 
+    && composer install \
+    && apt-get autoremove
 # Run apache2
 CMD ["apache2-foreground"]
 # Switch to www-data
@@ -52,7 +54,8 @@ USER root
 # Enable the apache config, configure git for the directory, and install php dependencies
 RUN a2ensite noahhumbert.conf \
     && git config --global --add safe.directory /var/www/noahhumbert.com \
-    && composer install
+    && composer install \
+    && apt-get autoremove
 # Run apache2
 CMD ["apache2-foreground"]
 # Switch to www-data
@@ -66,7 +69,8 @@ USER root
 # Enable the apache config, configure git for the directory, install php dependencies, Give www-data permission to manipulate all files
 RUN a2ensite noahhumbert.conf \
     && git config --global --add safe.directory /var/www/noahhumbert.com \
-    && composer install
+    && composer install \
+    && apt-get autoremove
 # Run apache2
 CMD ["apache2-foreground"]
 # Switch to www-data

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Register</title>
+        {% include 'partials/_head.html.twig' %}
+    </head>
+    <body>
+        <!-- Top Navigation Bar -->
+        {% include 'partials/_navbar.html.twig' %}
+
+        <!-- Flash Messages -->
+        {% for flash_error in app.flashes('verify_email_error') %}
+            <div class="alert alert-danger">{{ flash_error }}</div>
+        {% endfor %}
+
+        <!-- Register form -->
+        <div class="container mt-4">
+            <div class="row justify-content-center">
+                <div class="col-7 card p-4">
+                    <p class="fs-2 text-center mt-2">Register</p>
+
+                    {{ form_start(registrationForm, {'attr': {'class': 'mb-4 mx-2'}}) }}
+
+                        <div class="mb-3">
+                            {{ form_label(registrationForm.email, 'Email address') }}
+                            {{ form_widget(registrationForm.email, {'attr': {'class': 'form-control', 'id': 'email'}}) }}
+                            {{ form_errors(registrationForm.email) }}
+                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                        </div>
+
+                        <div class="mb-3">
+                            {{ form_label(registrationForm.plainPassword, 'Password') }}
+                            {{ form_widget(registrationForm.plainPassword, {'attr': {'class': 'form-control', 'id': 'password'}}) }}
+                            {{ form_errors(registrationForm.plainPassword) }}
+                        </div>
+
+                        <div class="mb-3 form-check">
+                            {{ form_widget(registrationForm.agreeTerms, {'attr': {'class': 'form-check-input', 'id': 'agreeTerms'}}) }}
+                            {{ form_label(registrationForm.agreeTerms, 'I agree to the terms', {'label_attr': {'class': 'form-check-label'}}) }}
+                            {{ form_errors(registrationForm.agreeTerms) }}
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100">Register</button>
+
+                    {{ form_end(registrationForm) }}
+                </div>
+            </div>
+        </div>
+
+        <!-- Javascript -->
+        <script src="{{ asset('bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    </body>
+</html>

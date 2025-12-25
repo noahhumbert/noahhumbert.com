@@ -7,6 +7,7 @@
 /.env.dev
 /.env.prod
 /.env.test
+/.env.db
 /config/secrets/prod/prod.decrypt.private.php
 /public/bundles/
 /var/
@@ -70,3 +71,6 @@
 
 # Embedded web-server pid file
 /.web-server-pid
+
+# SQL Migrations
+/migrations/

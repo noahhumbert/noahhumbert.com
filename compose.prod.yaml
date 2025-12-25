@@ -1,5 +1,5 @@
 services:
-  app:
+  php:
     build:
       context: .
       target: prod
@@ -10,3 +10,9 @@ services:
     ports:
       - "80:80"
     volumes: []  # does not change the container code as local changes are made
+    networks:
+      - network
+
+networks:
+  network:
+    external: true

@@ -72,29 +72,6 @@ a.text-links:hover {
     text-decoration: underline;
 }
 
-
-/* ---------- Buttons ---------- */
-.btn-primary {
-    color: var(--bs-button-text);
-    background-color: var(--bs-button-bg);
-    border-color: var(--bs-button-border);
-}
-.btn-primary:hover {
-    color: var(--bs-button-text-hover);
-    background-color: var(--bs-button-bg-hover);
-    border-color: var(--bs-button-border-hover);
-}
-.btn-secondary {
-    background-color: var(--bs-button-border);
-    border-color: var(--bs-button-border);
-    color: var(--bs-button-bg-hover);
-}
-.btn-secondary:hover {
-    background-color: var(--bs-button-bg-hover);
-    border-color: var(--bs-button-border);
-    color: var(--bs-button-border);
-}
-
 /* ------- Custom Images ----- */
 .resume-noah {
     max-height: 200px; 
@@ -128,11 +105,33 @@ a.text-links:hover {
 .card-text {
     color: var(--bs-body-color);
 }
-.card a {
+.card-a {
     color: var(--bs-primary);
 }
-.card a:hover {
+.card-a:hover {
     color: var(--bs-button-text-hover);
+}
+
+/* ---------- Buttons ---------- */
+.btn-primary {
+    color: var(--bs-button-text);
+    background-color: var(--bs-button-bg);
+    border-color: var(--bs-button-border);
+}
+.btn-primary:hover {
+    color: var(--bs-button-text-hover);
+    background-color: var(--bs-button-bg-hover);
+    border-color: var(--bs-button-border-hover);
+}
+.btn-secondary {
+    background-color: var(--bs-button-border);
+    border-color: var(--bs-button-border);
+    color: var(--bs-body-bg);
+}
+.btn-secondary:hover {
+    background-color: var(--bs-button-bg-hover);
+    border-color: var(--bs-button-border);
+    color: var(--bs-button-border);
 }
 
 /* ---------- Navbar ---------- */
