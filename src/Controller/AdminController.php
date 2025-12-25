@@ -59,31 +59,38 @@ class AdminController extends AbstractController
 
             $user = $em->getRepository(User::class)->findOneBy(['email' => $email]);
 
-            if ($user) {
-                // prevent self-admin removal
-                if ($user === $this->getUser() && $role === 'ROLE_ADMIN') {
-                    $this->addFlash('warning', 'You cannot remove your own admin role.');
-                    return $this->redirectToRoute('admin');
-                }
-
-                $roles = array_values(array_diff($user->getRoles(), [$role]));
-
-                // Ensure at least ROLE_USER
-                if (empty($roles)) {
-                    $roles = ['ROLE_USER'];
-                }
-
-                $user->setRoles($roles);
-                $em->flush();
-
-                $this->addFlash('success', 'Role removed.');
-            } else {
+            if (!$user) {
                 $this->addFlash('danger', 'User not found.');
+                return $this->redirectToRoute('admin');
             }
 
+            // Prevent removing your own admin role
+            if ($user === $this->getUser() && $role === 'ROLE_ADMIN') {
+                $this->addFlash('warning', 'You cannot remove your own admin role.');
+                return $this->redirectToRoute('admin');
+            }
+
+            $roles = $user->getRoles();
+
+            // Remove the role if it exists
+            if (in_array($role, $roles)) {
+                $roles = array_filter($roles, fn($r) => $r !== $role);
+            }
+
+            // Ensure at least ROLE_USER
+            if (empty($roles)) {
+                $roles = ['ROLE_USER'];
+            }
+
+            // Reset array keys and force Doctrine to see a change
+            $user->setRoles(array_values($roles));
+
+            $em->persist($user); // ensure Doctrine knows this entity is updated
+            $em->flush();
+
+            $this->addFlash('success', 'Role removed.');
             return $this->redirectToRoute('admin');
         }
-
 
         return $this->render('admin.html.twig', [
             'addRoleForm' => $form->createView(),
