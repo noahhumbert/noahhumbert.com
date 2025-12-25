@@ -20,8 +20,10 @@ class AdminController extends AbstractController
         EntityManagerInterface $em
     ): Response {
         /** ADD ROLE FORM */
-        $form = $this->createForm(AddRoleType::class);
-        $form->handleRequest($request);
+        $addRoleForm = $this->createForm(AddRoleType::class, null, [
+            'attr' => ['id' => 'add_role_form']
+        ]);
+        $addRoleForm->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $data  = $form->getData();
@@ -49,7 +51,9 @@ class AdminController extends AbstractController
         }
 
         /** REMOVE ROLE FORM */
-        $removeRoleForm = $this->createForm(RemoveRoleType::class);
+        $removeRoleForm = $this->createForm(RemoveRoleType::class, null, [
+            'attr' => ['id' => 'remove_role_form']
+        ]);
         $removeRoleForm->handleRequest($request);
 
         if ($removeRoleForm->isSubmitted() && $removeRoleForm->isValid()) {
