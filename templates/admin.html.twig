@@ -12,14 +12,14 @@
         <div class="container my-5 justify-content-center">
             <!-- Add Role to User -->
             <div class="col-3">
-                <div class="card" style="max-width: auto;">
+                <div class="card mx-3 mt-3" style="max-width: auto;">
+                    <p class="fs-3">Add Role</p>
                     {{ form_start(addRoleForm, {'attr': {'class': 'mb-4 mx-2'}}) }}
 
                         <div class="mb-3">
                             {{ form_label(addRoleForm.email, 'Email address') }}
                             {{ form_widget(addRoleForm.email, {'attr': {'class': 'form-control', 'id': 'email'}}) }}
                             {{ form_errors(addRoleForm.email) }}
-                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                         </div>
 
                         <div class="mb-3">
@@ -28,7 +28,7 @@
                             {{ form_errors(addRoleForm.role) }}
                         </div>
 
-                        <button type="submit" class="btn btn-primary w-100">Register</button>
+                        <button type="submit" class="btn btn-primary w-100">Change</button>
 
                     {{ form_end(addRoleForm) }}
                 </div>
