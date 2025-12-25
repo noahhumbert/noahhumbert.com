@@ -25,8 +25,8 @@ class AdminController extends AbstractController
         ]);
         $addRoleForm->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $data  = $form->getData();
+        if ($addRoleForm->isSubmitted() && $addRoleForm->isValid()) {
+            $data  = $addRoleForm->getData();
             $email = $data['email'];
             $role  = $data['role'];
 
