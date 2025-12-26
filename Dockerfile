@@ -17,13 +17,16 @@ USER root
 COPY --chown=www-data:www-data ./ /var/www/noahhumbert.com
 # Moving working directory to the codebase
 WORKDIR /var/www/noahhumbert.com
+# Force noninteractive APT and set timezone
+ENV DEBIAN_FRONTEND=noninteractive
+ENV TZ=UTC
 # Setup Composer
 RUN apt-get update \
-    && DEBIAN_FRONTEND=noninteractive apt-get install -y unzip git tzdata \
-    && ln -fs /usr/share/zoneinfo/UTC /etc/localtime \
+    && apt-get install -y unzip git tzdata \
+    && ln -fs /usr/share/zoneinfo/$TZ /etc/localtime \
     && dpkg-reconfigure --frontend noninteractive tzdata \
     && docker-php-ext-install pdo pdo_mysql \
-    && php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
+    && php -r "copy('https://getcomposer.org/installer','composer-setup.php');" \
     && php composer-setup.php --install-dir=/usr/local/bin --filename=composer \
     && php -r "unlink('composer-setup.php');" \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
