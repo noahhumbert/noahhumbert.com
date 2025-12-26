@@ -19,11 +19,14 @@ COPY --chown=www-data:www-data ./ /var/www/noahhumbert.com
 WORKDIR /var/www/noahhumbert.com
 # Setup Composer
 RUN apt-get update \
-    && apt-get install -y unzip git \
+    && DEBIAN_FRONTEND=noninteractive apt-get install -y unzip git tzdata \
+    && ln -fs /usr/share/zoneinfo/UTC /etc/localtime \
+    && dpkg-reconfigure --frontend noninteractive tzdata \
     && docker-php-ext-install pdo pdo_mysql \
     && php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
     && php composer-setup.php --install-dir=/usr/local/bin --filename=composer \
-    && php -r "unlink('composer-setup.php');"
+    && php -r "unlink('composer-setup.php');" \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
 # Setup the blank .env file
 RUN touch .env \
     && chown www-data:www-data .env \
