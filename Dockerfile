@@ -17,9 +17,12 @@ USER root
 COPY --chown=www-data:www-data ./ /var/www/noahhumbert.com
 # Moving working directory to the codebase
 WORKDIR /var/www/noahhumbert.com
+# Force noninteractive APT and set timezone
+ENV DEBIAN_FRONTEND=noninteractive
+ENV TZ=UTC
 # Setup Composer
 RUN apt-get update \
-    && apt-get install -y unzip git tzdata libmariadb-dev \
+    && apt-get install -y unzip git tzdata \
     && ln -fs /usr/share/zoneinfo/$TZ /etc/localtime \
     && dpkg-reconfigure --frontend noninteractive tzdata 
 RUN docker-php-ext-install pdo pdo_mysql 
