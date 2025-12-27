@@ -22,7 +22,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 ENV TZ=UTC
 # Setup Composer
 RUN apt-get update \
-    && apt-get install -y unzip git tzdata \
+    && apt-get install -y unzip git tzdata $PHPIZE_DEPS \
     && ln -fs /usr/share/zoneinfo/$TZ /etc/localtime \
     && dpkg-reconfigure --frontend noninteractive tzdata 
 RUN docker-php-ext-install pdo pdo_mysql 
