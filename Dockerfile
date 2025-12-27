@@ -29,7 +29,7 @@ RUN apt-get update \
     && php -r "copy('https://getcomposer.org/installer','composer-setup.php');" \
     && php composer-setup.php --install-dir=/usr/local/bin --filename=composer \
     && php -r "unlink('composer-setup.php');" \
-    && apt-get clean && rm -rf /var/lib/apt/lists/* \
+    && apt-get clean && rm -rf /var/lib/apt/lists/* 
 # Setup the blank .env file
 RUN touch .env \
     && chown www-data:www-data .env \
