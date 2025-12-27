@@ -21,7 +21,7 @@ WORKDIR /var/www/noahhumbert.com
 ENV DEBIAN_FRONTEND=noninteractive
 ENV TZ=UTC
 # Setup Composer
-RUN apt-get update \
+RUN apt-get update 
 RUN apt-get install -y unzip git tzdata 
 RUN ln -fs /usr/share/zoneinfo/$TZ /etc/localtime 
 RUN dpkg-reconfigure --frontend noninteractive tzdata 
