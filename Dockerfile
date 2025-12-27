@@ -22,13 +22,13 @@ ENV DEBIAN_FRONTEND=noninteractive
 ENV TZ=UTC
 # Setup Composer
 RUN apt-get update \
-RUN apt-get install -y unzip git tzdata \
-RUN ln -fs /usr/share/zoneinfo/$TZ /etc/localtime \
-RUN dpkg-reconfigure --frontend noninteractive tzdata \
-RUN docker-php-ext-install pdo pdo_mysql \
-RUN php -r "copy('https://getcomposer.org/installer','composer-setup.php');" \
-RUN php composer-setup.php --install-dir=/usr/local/bin --filename=composer \
-RUN php -r "unlink('composer-setup.php');" \
+RUN apt-get install -y unzip git tzdata 
+RUN ln -fs /usr/share/zoneinfo/$TZ /etc/localtime 
+RUN dpkg-reconfigure --frontend noninteractive tzdata 
+RUN docker-php-ext-install pdo pdo_mysql 
+RUN php -r "copy('https://getcomposer.org/installer','composer-setup.php');" 
+RUN php composer-setup.php --install-dir=/usr/local/bin --filename=composer 
+RUN php -r "unlink('composer-setup.php');" 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 # Setup the blank .env file
 RUN touch .env \
