@@ -3,14 +3,16 @@ framework:
     secret: '%env(APP_SECRET)%'
 
     # Note that the session will be started ONLY if you read or write from it.
-    session: true
+    session:
+        cookie_secure: auto
+        cookie_samesite: lax
 
     #esi: true
     #fragments: true
 
     ## Configurations for the Reverse Proxy
     # The proxy that my website trusts
-    trusted_proxies: '10.0.111.104'
+    trusted_proxies: ['127.0.0.1', '172.16.0.0/12', '10.0.0.0/8']
     # Adding the headers passed in from the /etc/nginx/sites-available/default file on the proxy
     trusted_headers: ['x-forwarded-for', 'x-forwarded-host', 'x-forwarded-proto', 'x-forwarded-port', 'x-forwarded-prefix']
 
