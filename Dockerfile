@@ -75,11 +75,11 @@ FROM artifact AS prod
 # Switch to root user
 USER root
 # Enable the apache config, configure git for the directory, install php dependencies, Give www-data permission to manipulate all files
-RUN a2ensite noahhumbert.conf \
-    && git config --global --add safe.directory /var/www/noahhumbert.com \
-    && composer install --no-interaction --prefer-dist --optimize-autoloader \
-    && chown -R www-data:www-data /var/www/noahhumbert.com \
-    && apt-get autoremove -y
+RUN a2ensite noahhumbert.conf 
+RUN git config --global --add safe.directory /var/www/noahhumbert.com 
+RUN composer install --no-interaction --prefer-dist --optimize-autoloader 
+RUN chown -R www-data:www-data /var/www/noahhumbert.com 
+RUN apt-get autoremove -y
 # Run apache2
 CMD ["apache2-foreground"]
 # Switch to www-data
