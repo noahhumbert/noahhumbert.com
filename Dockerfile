@@ -22,9 +22,9 @@ ENV DEBIAN_FRONTEND=noninteractive
 ENV TZ=UTC
 # Setup Composer
 RUN apt-get update \
-    && apt-get install -y unzip git tzdata libmariadb-dev $PHPIZE_DEPS \
-    && ln -fs /usr/share/zoneinfo/$TZ /etc/localtime \
-    && dpkg-reconfigure --frontend noninteractive tzdata 
+    && apt-get install -y unzip git tzdata libmariadb-dev $PHPIZE_DEPS 
+RUN ln -fs /usr/share/zoneinfo/$TZ /etc/localtime 
+RUN dpkg-reconfigure --frontend noninteractive tzdata 
 RUN docker-php-ext-install pdo pdo_mysql 
 RUN php -r "copy('https://getcomposer.org/installer','composer-setup.php');" 
 RUN php composer-setup.php --install-dir=/usr/local/bin --filename=composer 
