@@ -22,14 +22,14 @@ ENV DEBIAN_FRONTEND=noninteractive
 ENV TZ=UTC
 # Setup Composer
 RUN apt-get update \
-    && apt-get install -y unzip git tzdata $PHPIZE_DEPS 
-RUN ln -fs /usr/share/zoneinfo/$TZ /etc/localtime 
-RUN dpkg-reconfigure --frontend noninteractive tzdata 
-RUN docker-php-ext-install pdo pdo_mysql 
-RUN php -r "copy('https://getcomposer.org/installer','composer-setup.php');" 
-RUN php composer-setup.php --install-dir=/usr/local/bin --filename=composer 
-RUN php -r "unlink('composer-setup.php');" 
-RUN apt-get clean && rm -rf /var/lib/apt/lists/*
+    && apt-get install -y unzip git tzdata \
+    && ln -fs /usr/share/zoneinfo/$TZ /etc/localtime \
+    && dpkg-reconfigure --frontend noninteractive tzdata \
+    && docker-php-ext-install pdo pdo_mysql mbstring xml intl \
+    && php -r "copy('https://getcomposer.org/installer','composer-setup.php');" \
+    && php composer-setup.php --install-dir=/usr/local/bin --filename=composer \
+    && php -r "unlink('composer-setup.php');" \
+    && apt-get clean && rm -rf /var/lib/apt/lists/* \
 # Setup the blank .env file
 RUN touch .env \
     && chown www-data:www-data .env \
@@ -75,11 +75,11 @@ FROM artifact AS prod
 # Switch to root user
 USER root
 # Enable the apache config, configure git for the directory, install php dependencies, Give www-data permission to manipulate all files
-RUN a2ensite noahhumbert.conf 
-RUN git config --global --add safe.directory /var/www/noahhumbert.com 
-RUN composer install --no-interaction --prefer-dist --optimize-autoloader 
-RUN chown -R www-data:www-data /var/www/noahhumbert.com 
-RUN apt-get autoremove -y
+RUN a2ensite noahhumbert.conf \
+    && git config --global --add safe.directory /var/www/noahhumbert.com \
+    && chown -R www-data:www-data /var/www/noahhumbert.com 
+RUN composer install --no-interaction --prefer-dist --optimize-autoloader \
+    && apt-get autoremove -y
 # Run apache2
 CMD ["apache2-foreground"]
 # Switch to www-data
