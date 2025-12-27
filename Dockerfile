@@ -25,7 +25,7 @@ RUN apt-get update \
     && apt-get install -y unzip git tzdata \
     && ln -fs /usr/share/zoneinfo/$TZ /etc/localtime \
     && dpkg-reconfigure --frontend noninteractive tzdata \
-    && docker-php-ext-install pdo pdo_mysql mbstring xml intl \
+    && docker-php-ext-install pdo pdo_mysql \
     && php -r "copy('https://getcomposer.org/installer','composer-setup.php');" \
     && php composer-setup.php --install-dir=/usr/local/bin --filename=composer \
     && php -r "unlink('composer-setup.php');" \
