@@ -23,7 +23,7 @@ ENV TZ=UTC
 # Setup Composer
 RUN apt-get update \
     && apt-get install -y unzip git tzdata \
-    && ln -fs /usr/share/zoneinfo/$TZ /etc/localtime \
+    && ln -fs /usr/share/zoneinfo/UTC /etc/localtime \
     && dpkg-reconfigure --frontend noninteractive tzdata \
     && docker-php-ext-install pdo pdo_mysql \
     && php -r "copy('https://getcomposer.org/installer','composer-setup.php');" \
@@ -77,8 +77,8 @@ USER root
 # Enable the apache config, configure git for the directory, install php dependencies, Give www-data permission to manipulate all files
 RUN a2ensite noahhumbert.conf \
     && git config --global --add safe.directory /var/www/noahhumbert.com \
-    && chown -R www-data:www-data /var/www/noahhumbert.com 
-RUN composer install --no-interaction --prefer-dist --optimize-autoloader \
+    && chown -R www-data:www-data /var/www/noahhumbert.com \
+    && composer install --no-interaction --prefer-dist --optimize-autoloader \
     && apt-get autoremove -y
 # Run apache2
 CMD ["apache2-foreground"]
