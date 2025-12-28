@@ -7,7 +7,6 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <a class="nav-link active fw-medium" aria-current="page" href=" {{ path('projects') }} ">Projects</a>
-        </div>
         {% if not is_granted('IS_AUTHENTICATED_FULLY') %}
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                 <a class="btn btn-primary align-self-end" href=" {{ path('login') }} " role="button">Sign In</a>
