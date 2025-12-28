@@ -1,6 +1,5 @@
             TO START/UPDATE CONTAINERS
-   COMMAND     PROJECT     COMPOSE YAML
-`docker compose -p dev -f compose.dev.yaml up -d --build`<br>
+<br>`docker compose -p dev -f compose.dev.yaml up -d --build`<br>
 `docker compose -p prod -f compose.prod.yaml up -d --build`<br>
 `docker compose -p db -f compose.db.yaml up -d --build`<br>
 
