@@ -113,11 +113,12 @@ a.text-links:hover {
 }
 
 .equal-hight-cards {
-    min-height: 80px;          /* adjust as needed */
+    height: 96px;              /* ← PICK A HEIGHT */
     display: flex;
-    align-items: center;       /* vertical centering */
-    justify-content: center;   /* horizontal centering */
+    align-items: center;
+    justify-content: center;
     text-align: center;
+    line-height: 1.25;
 }
 
 /* ---------- Buttons ---------- */
