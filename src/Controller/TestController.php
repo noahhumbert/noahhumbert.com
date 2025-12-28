@@ -14,11 +14,11 @@ class TestController extends AbstractController {
 
           $session = $request->getSession();
 
-               // Set a value in the session
-               $session->set('foo', 'bar');
+          // Set a value in the session
+          $session->set('foo', 'bar');
 
-               // Retrieve the value to confirm persistence
-               $foo = $session->get('foo');
+          // Retrieve the value to confirm persistence
+          $foo = $session->get('foo');
 
           return $this->render('test.html.twig', [
                'hello' => $hello,
