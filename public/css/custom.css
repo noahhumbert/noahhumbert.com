@@ -112,6 +112,14 @@ a.text-links:hover {
     color: var(--bs-button-text-hover);
 }
 
+.equal-hight-cards {
+    min-height: 80px;          /* adjust as needed */
+    display: flex;
+    align-items: center;       /* vertical centering */
+    justify-content: center;   /* horizontal centering */
+    text-align: center;
+}
+
 /* ---------- Buttons ---------- */
 .btn-primary {
     color: var(--bs-button-text);
