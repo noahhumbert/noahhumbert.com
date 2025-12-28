@@ -11,8 +11,18 @@ class TestController extends AbstractController {
      public function index(): Response {
 	     $hello = 'Hello World';
 
+          $session = $request->getSession();
+
+               // Set a value in the session
+               $session->set('foo', 'bar');
+
+               // Retrieve the value to confirm persistence
+               $foo = $session->get('foo');
+
           return $this->render('test.html.twig', [
                'hello' => $hello,
+               'session_id' => $session->getId(),
+               'foo' => $foo,
           ]);
      }
 }
