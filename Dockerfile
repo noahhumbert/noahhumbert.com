@@ -45,7 +45,6 @@ USER root
 # Enable the apache config, configure git for the directory, and install php dependencies
 RUN a2ensite noahhumbert.conf 
 RUN git config --global --add safe.directory /var/www/noahhumbert.com 
-RUN chown -R www-data:www-data /var/www/noahhumbert.com 
 RUN composer install --no-interaction --prefer-dist --optimize-autoloader 
 RUN apt-get autoremove -y
 # Run apache2
