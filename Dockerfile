@@ -45,10 +45,11 @@ USER root
 # Enable the apache config, configure git for the directory, and install php dependencies
 RUN a2ensite noahhumbert.conf \
     && git config --global --add safe.directory /var/www/noahhumbert.com \
+    && chown -R www-data:www-data /var/www/noahhumbert.com \
     && composer install --no-interaction --prefer-dist --optimize-autoloader \
     && apt-get autoremove -y
 # Run apache2
-CMD ["php bin/console cache:clear && php bin/console cache:warmup && apache2-foreground"]
+CMD ["apache2-foreground"]
 # Switch to www-data
 USER www-data
 
@@ -64,6 +65,6 @@ RUN a2ensite noahhumbert.conf \
     && composer install --no-interaction --prefer-dist --optimize-autoloader \
     && apt-get autoremove -y
 # Run apache2
-CMD ["php bin/console cache:clear && php bin/console cache:warmup && apache2-foreground"]
+CMD ["apache2-foreground"]
 # Switch to www-data
 USER www-data
