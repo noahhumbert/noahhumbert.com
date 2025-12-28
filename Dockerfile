@@ -39,22 +39,6 @@ USER www-data
 
 ##
 # Build the dev environment
-FROM artifact AS test
-# Switch to root user
-USER root
-# Enable the apache config, configure git for the directory, and install php dependencies
-RUN a2ensite noahhumbert.conf \
-    && git config --global --add safe.directory /var/www/noahhumbert.com \
-    && composer install --no-interaction --prefer-dist --optimize-autoloader \
-    && chown -R www-data:www-data /var/www/noahhumbert.com \
-    && apt-get autoremove -y
-# Run apache2
-CMD ["php bin/console cache:clear && php bin/console cache:warmup && apache2-foreground"]
-# Switch to www-data
-USER www-data
-
-##
-# Build the dev environment
 FROM artifact AS dev
 # Switch to root user
 USER root
