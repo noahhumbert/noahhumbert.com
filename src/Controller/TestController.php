@@ -9,7 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class TestController extends AbstractController {
      #[Route('/test', name: 'test')]
-     public function index(): Response {
+     public function index(Request $request): Response {
 	     $hello = 'Hello World';
 
           $session = $request->getSession();
