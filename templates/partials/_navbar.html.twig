@@ -3,7 +3,7 @@
         <a class="navbar-brand" href=" {{ path('home') }} ">
             <img class="img-fluid" src=" {{ asset('images/logo.png') }} " alt="Banner Hero" style="width: 50px; height: 50px;">
         </a>
-        <a class="nav-link active fw-medium justify-self-start" aria-current="page" href=" {{ path('projects') }} ">Projects</a>
+        <a class="nav-link active fw-medium" aria-current="page" href=" {{ path('projects') }} ">Projects</a>
         {% if not is_granted('IS_AUTHENTICATED_FULLY') %}
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                 <a class="btn btn-primary align-self-end" href=" {{ path('login') }} " role="button">Sign In</a>
