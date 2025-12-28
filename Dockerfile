@@ -49,7 +49,7 @@ RUN a2ensite noahhumbert.conf \
     && chown -R www-data:www-data /var/www/noahhumbert.com \
     && apt-get autoremove -y
 # Run apache2
-CMD ["apache2-foreground"]
+CMD ["php bin/console cache:clear && php bin/console cache:warmup && apache2-foreground"]
 # Switch to www-data
 USER www-data
 
@@ -65,7 +65,7 @@ RUN a2ensite noahhumbert.conf \
     && chown -R www-data:www-data /var/www/noahhumbert.com \
     && apt-get autoremove -y
 # Run apache2
-CMD ["apache2-foreground"]
+CMD ["php bin/console cache:clear && php bin/console cache:warmup && apache2-foreground"]
 # Switch to www-data
 USER www-data
 
@@ -81,6 +81,6 @@ RUN a2ensite noahhumbert.conf \
     && composer install --no-interaction --prefer-dist --optimize-autoloader \
     && apt-get autoremove -y
 # Run apache2
-CMD ["apache2-foreground"]
+CMD ["php bin/console cache:clear && php bin/console cache:warmup && apache2-foreground"]
 # Switch to www-data
 USER www-data
