@@ -113,10 +113,10 @@ a.text-links:hover {
 }
 
 .equal-hight-cards {
-    height: 96px;              /* ← PICK A HEIGHT */
+    height: 96px;               /* force equal height */
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: center;        /* vertical center */
+    justify-content: center;    /* horizontal center */
     text-align: center;
     line-height: 1.25;
 }
