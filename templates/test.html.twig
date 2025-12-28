@@ -1,2 +1,18 @@
-{# templates/test.html.twig #}
-<h1>{{ hello }}</h1>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>TEST</title>
+        {% include 'partials/_head.html.twig' %}
+    </head>
+    <body>
+        <!-- Test Attributes -->
+        <div class="container justify-content-start mx-0">
+            <h1>{{ hello }}</h1>
+            <h1>Session ID: {{ session_id }}</h1>
+            <h1>Foo: {{ foo }}</h1>
+        </div>
+    
+        <!-- Javascript -->
+        <script src="{{ asset('bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    </body>
+</html>
