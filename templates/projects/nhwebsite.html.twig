@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Website Project</title>
+        {% include 'partials/_head.html.twig' %}
+    </head>
+    <body>
+        <!-- Navbar -->
+        {% include 'partials/_navbar.html.twig' %}
+    
+        <!-- Header -->
+        <div class="container justify-text-center">
+            <div class="row">
+                <h1>noahhumbert.com</h1>
+            </div>
+            <div class="row">
+                <img src=" {{ asset('images/websitepicture.png') }} " class="card-img-top" alt="noahhumbert.com">
+            </div>
+        </div>
+
+        <!-- Details -->
+        <div class="container">
+            </div class="row">
+                <div class="card-body">
+                    <h5 class="fs-2 mb-4 text-center">Project Description</h5>
+                    <p class="fs-6">
+                        My first project to list is the one you are currently looking at. noahhumbert.com is going to be my personal website to grow
+                        my brand and share my projects to everyone. It will also be a place for people to reach out to me for anything between technical
+                        questions to large paid projects. I am very excited to grow this website along with my brand on the internet.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Resources -->
+        <div class="container">
+            <div class="row">
+                <p class="fs-1 text-center">Resources</p>
+            </div>
+            <div class="row">
+                <div class="col-10 col-lg-2"
+                    <a href="https://github.com/noahhumbert/noahhumbert.com"><img src=" {{ asset('images/github.png') }} " class="card-img-top" alt="noahhumbert.com"></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Javascript -->
+        <script src="{{ asset('bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    </body>
+</html>

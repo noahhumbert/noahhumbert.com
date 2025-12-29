@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>TITLE</title>
+        {% include 'partials/_head.html.twig' %}
+    </head>
+    <body>
+        <!-- Navbar -->
+        {% include 'partials/_navbar.html.twig' %}
+    
+        <!-- Header -->
+        <div class="container justify-text-center">
+            <div class="row">
+                <h1>PROJECT TITLE</h1>
+            </div>
+            <div class="row">
+                <img src=" {{ asset('PROJECT IMAGE PATH') }} " class="card-img-top" alt="noahhumbert.com">
+            </div>
+        </div>
+
+        <!-- Details -->
+        <div class="container">
+            </div class="row">
+                <div class="card-body">
+                    <h5 class="fs-2 mb-4 text-center">Project Description</h5>
+                    <p class="fs-6">
+                        PROJECT WRITEUP HERE
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Javascript -->
+        <script src="{{ asset('bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    </body>
+</html>
