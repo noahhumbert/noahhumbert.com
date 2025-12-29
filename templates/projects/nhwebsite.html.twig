@@ -9,12 +9,14 @@
         {% include 'partials/_navbar.html.twig' %}
     
         <!-- Header -->
-        <div class="container justify-text-center">
-            <div class="row">
+        <div class="container justify-content-center">
+            <div class="row text-center">
                 <h1>noahhumbert.com</h1>
             </div>
             <div class="row">
-                <img src=" {{ asset('images/websitepicture.png') }} " class="card-img-top" alt="noahhumbert.com">
+                <div class="col-4">
+                    <img src=" {{ asset('images/websitepicture.png') }} " class="card-img-top" alt="noahhumbert.com">
+                </div>
             </div>
         </div>
 
@@ -38,8 +40,8 @@
                 <p class="fs-1 text-center">Resources</p>
             </div>
             <div class="row">
-                <div class="col-10 col-lg-2"
-                    <a href="https://github.com/noahhumbert/noahhumbert.com"><img src=" {{ asset('images/github.png') }} " class="card-img-top" alt="noahhumbert.com"></a>
+                <div class="col-10 col-lg-2">
+                    <a href="https://github.com/noahhumbert/noahhumbert.com"><img src=" {{ asset('images/github.png') }} " class="card-img-top" alt="github"></a>
                 </div>
             </div>
         </div>
