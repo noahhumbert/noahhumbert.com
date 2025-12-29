@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Website Project</title>
+        {% include 'partials/_head.html.twig' %}
+    </head>
+    <body>
+        <!-- Navbar -->
+        {% include 'partials/_navbar.html.twig' %}
+    
+        <!-- Header -->
+        <div class="container justify-content-center">
+            <div class="row text-center">
+                <h1>www.noahhumbert.com</h1>
+            </div>
+        </div>
+
+        <!-- Details -->
+        <div class="container my-5">
+            <div class="row justify-content-center mb-2">
+                <div class="card" style="max-width: auto;">
+                    <div class="row g-0">
+                        <div class="col-12 col-lg-4">
+                            <img src=" {{ asset('images/websitepicture.png') }} " class="card-img-top" alt="noahhumbert.com">
+                        </div>
+                        <div class="card-body col-12 col-lg-8">
+                            <h5 class="fs-2 mb-4 text-center">Project Description</h5>
+                            <p class="fs-6">
+                                My first project to list is the one you are currently looking at. noahhumbert.com is going to be my personal website to grow
+                                my brand and share my projects to everyone. It will also be a place for people to reach out to me for anything between technical
+                                questions to large paid projects. The website was built using the Symfony framework in php. The front end was built using twig
+                                HTML which allows interfacing between the html front end and php back end. The styling was done with the Bootstrap PHP wrapper. 
+                                I am very excited to grow this website along with my brand on the internet.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Resources -->
+        <div class="container mb-5">
+            <div class="row">
+                <p class="fs-1 text-center">Resources</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-10 col-lg-2">
+                    <a href="https://github.com/noahhumbert/noahhumbert.com"><img src=" {{ asset('images/github.png') }} " class="card-img-top" alt="github"></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Javascript -->
+        <script src="{{ asset('bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    </body>
+</html>
+

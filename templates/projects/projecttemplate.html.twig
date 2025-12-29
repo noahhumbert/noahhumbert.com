@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>PROJECT NAME</title>
+        {% include 'partials/_head.html.twig' %}
+    </head>
+    <body>
+        <!-- Navbar -->
+        {% include 'partials/_navbar.html.twig' %}
+    
+        <!-- Header -->
+        <div class="container justify-content-center">
+            <div class="row text-center">
+                <h1>PROJECT TITLE</h1>
+            </div>
+        </div>
+
+        <!-- Details -->
+        <div class="container my-5">
+            <div class="row justify-content-center mb-2">
+                <div class="card" style="max-width: auto;">
+                    <div class="row g-0">
+                        <div class="col-12 col-lg-4">
+                            <img src=" {{ asset('images/PROJECT IMAGE') }} " class="card-img-top" alt="noahhumbert.com">
+                        </div>
+                        <div class="card-body col-12 col-lg-8">
+                            <h5 class="fs-2 mb-4 text-center">Project Description</h5>
+                            <p class="fs-6">
+                                WRITE UP
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Resources -->
+        <div class="container mb-5">
+            <div class="row">
+                <p class="fs-1 text-center">Resources</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-10 col-lg-2">
+                    <a href="GITHUB LINK"><img src=" {{ asset('images/github.png') }} " class="card-img-top" alt="github"></a>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-10 col-lg-2">
+                    <a href="YOUTUBE LINK"><img src=" {{ asset('images/youtube.png') }} " class="card-img-top" alt="youtube"></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Javascript -->
+        <script src="{{ asset('bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    </body>
+</html>

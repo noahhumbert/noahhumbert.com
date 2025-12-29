@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>8-Bit Breadboard Computer</title>
+        {% include 'partials/_head.html.twig' %}
+    </head>
+    <body>
+        <!-- Navbar -->
+        {% include 'partials/_navbar.html.twig' %}
+    
+        <!-- Header -->
+        <div class="container justify-content-center">
+            <div class="row text-center">
+                <h1>8-Bit Breadboard Computer</h1>
+            </div>
+        </div>
+
+        <!-- Details -->
+        <div class="container my-5">
+            <div class="row justify-content-center mb-2">
+                <div class="card" style="max-width: auto;">
+                    <div class="row g-0">
+                        <div class="col-12 col-lg-4">
+                            <img src=" {{ asset('images/logo.png') }} " class="card-img-top" alt="noahhumbert.com">
+                        </div>
+                        <div class="card-body col-12 col-lg-8">
+                            <h5 class="fs-2 mb-4 text-center">Project Description</h5>
+                            <p class="fs-6">
+                                I just started this one! This is my journey to building an 8-bit computer that is Turing Complete on breadboards with just
+                                IC chips. No microcontrollers allowed. Watch the full journey from an explaination of transistors all the way to creating our
+                                own assembly language for the CPU. This series will be filmed in it's entirety on YouTube and will be my first experience
+                                filming videos. Expect lots of improvements in film quality as well as speech habits throughout the series.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Resources -->
+        <div class="container mb-5">
+            <div class="row">
+                <p class="fs-1 text-center">Resources</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-10 col-lg-2">
+                    <a href="https://www.youtube.com/watch?v=s-LEd0ffnnM&list=PLs69BFt3sil-9MgHSzrXpefUgKYh6Amjk&pp=gAQBiAQBsAgC"><img src=" {{ asset('images/youtube.png') }} " class="card-img-top" alt="youtube"></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Javascript -->
+        <script src="{{ asset('bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    </body>
+</html>
