@@ -1,4 +1,3 @@
-<?php
 // src/Controller/Api/UserRoleController.php
 namespace App\Controller\Api;
 
@@ -14,17 +13,17 @@ class UserRoleController extends AbstractController
     public function checkRole(Request $request, UserRepository $userRepository): JsonResponse
     {
         // --- TOKEN CHECK ---
-        $token = $request->headers->get('X-API-TOKEN'); // header stays the same
+        $token = $request->headers->get('X-API-TOKEN');
         if ($token !== $_ENV['PULL_USER_TOKEN']) {
             return $this->json(['error' => 'Unauthorized'], 401);
         }
 
         // --- PARSE REQUEST ---
         $data = json_decode($request->getContent(), true);
-        $userId = $data['user_id'] ?? null;
+        $email = $data['email'] ?? null;
         $role = $data['role'] ?? null;
 
-        if (!$userId || !$role) {
+        if (!$email || !$role) {
             return $this->json(['error' => 'Missing parameters'], 400);
         }
 
@@ -40,4 +39,3 @@ class UserRoleController extends AbstractController
         return $this->json(['has_role' => $hasRole]);
     }
 }
-?>
