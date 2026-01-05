@@ -1,3 +1,4 @@
+<?php
 // src/Controller/Api/UserRoleController.php
 namespace App\Controller\Api;
 
@@ -39,3 +40,4 @@ class UserRoleController extends AbstractController
         return $this->json(['has_role' => $hasRole]);
     }
 }
+?>
