@@ -28,8 +28,8 @@ class UserRoleController extends AbstractController
             return $this->json(['error' => 'Missing parameters'], 400);
         }
 
-        // --- FETCH USER ---
-        $user = $userRepository->find($userId);
+        // --- FETCH USER BY EMAIL ---
+        $user = $userRepository->findOneBy(['email' => $email]);
         if (!$user) {
             return $this->json(['error' => 'User not found'], 404);
         }
