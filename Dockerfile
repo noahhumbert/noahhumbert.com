@@ -22,7 +22,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 ENV TZ=UTC
 # Setup Composer
 RUN apt-get update \
-    && apt-get install -y unzip git tzdata sendmail \
+    && apt-get install -y unzip git tzdata sendmail postfix \
     && ln -fs /usr/share/zoneinfo/UTC /etc/localtime \
     && dpkg-reconfigure --frontend noninteractive tzdata \
     && docker-php-ext-install pdo pdo_mysql \
@@ -30,6 +30,13 @@ RUN apt-get update \
     && php composer-setup.php --install-dir=/usr/local/bin --filename=composer \
     && php -r "unlink('composer-setup.php');" \
     && apt-get clean && rm -rf /var/lib/apt/lists/* 
+# Configure Postfix to send mail
+RUN postconf -e "myhostname = localhost" && \
+    postconf -e "mydestination = localhost" && \
+    postconf -e "inet_interfaces = loopback-only" && \
+    postconf -e "relayhost = " && \
+    postconf -e "myorigin = /etc/mailname" && \
+    echo "localhost" > /etc/mailname
 # Setup the blank .env file
 RUN touch .env \
     && chown www-data:www-data .env \
