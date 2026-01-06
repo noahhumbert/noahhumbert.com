@@ -1,5 +1,6 @@
 <?php
 // src/Controller/Api/UserRoleController.php
+
 namespace App\Controller\Api;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -9,12 +10,14 @@ use App\Repository\UserRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
-
 class UserRoleController extends AbstractController
 {
-    #[Route('/api/check-role', name: 'api_check_role', methods:['POST'])]
-    public function checkRole(Request $request, UserRepository $userRepository, UserPasswordHasherInterface $passwordHasher): JsonResponse
-    {
+    #[Route('/api/check-role', name: 'api_check_role', methods: ['POST'])]
+    public function checkRole(
+        Request $request,
+        UserRepository $userRepository,
+        UserPasswordHasherInterface $passwordHasher
+    ): JsonResponse {
         // --- TOKEN CHECK ---
         $token = $request->headers->get('X-API-TOKEN');
         if ($token !== $_ENV['PULL_USER_TOKEN']) {
@@ -23,12 +26,19 @@ class UserRoleController extends AbstractController
 
         // --- PARSE REQUEST ---
         $data = json_decode($request->getContent(), true);
-        $email = $data['email'] ?? null;
-        $password = $data['password'] ?? null;
-        $role = $data['role'] ?? null;
 
-        if (!$email || !$role) {
+        $email    = $data['email'] ?? null;
+        $password = $data['password'] ?? null;
+        $role     = $data['role'] ?? null;
+
+        if (!$email || !$password || !$role) {
             return $this->json(['error' => 'Missing parameters'], 400);
+        }
+
+        // --- FETCH USER ---
+        $user = $userRepository->findOneBy(['email' => $email]);
+        if (!$user) {
+            return $this->json(['error' => 'User not found'], 404);
         }
 
         // --- VERIFY PASSWORD ---
@@ -44,4 +54,3 @@ class UserRoleController extends AbstractController
         ]);
     }
 }
-?>
