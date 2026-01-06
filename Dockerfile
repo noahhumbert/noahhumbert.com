@@ -30,6 +30,11 @@ RUN apt-get update \
     && php composer-setup.php --install-dir=/usr/local/bin --filename=composer \
     && php -r "unlink('composer-setup.php');" \
     && apt-get clean && rm -rf /var/lib/apt/lists/* 
+# Setup the required postfix directories with proper permissions
+RUN mkdir -p /var/spool/postfix/maildrop \
+    && mkdir -p /var/spool/postfix/incoming \
+    && chown -R postfix:postfix /var/spool/postfix \
+    && chmod -R 700 /var/spool/postfix
 # Setup the blank .env file
 RUN touch .env \
     && chown www-data:www-data .env \
