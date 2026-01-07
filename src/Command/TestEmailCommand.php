@@ -11,6 +11,7 @@ use Symfony\Component\Mime\Email;
 class TestEmailCommand extends Command
 {
     protected static $defaultName = 'app:test-email';
+    protected static $defaultDescription = 'Send a test email via SES';
 
     private MailerInterface $mailer;
 
@@ -23,8 +24,8 @@ class TestEmailCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $email = (new Email())
-            ->from('noreply@noahhumbert.com') // must be verified in SES
-            ->to('noah@noahhumbert')
+            ->from('noreply@noahhumbert.com')
+            ->to('noah@noahhumbert.com')
             ->subject('SES Test Email')
             ->text('Hello! This is a test email via Amazon SES.');
 
@@ -38,4 +39,3 @@ class TestEmailCommand extends Command
         return Command::SUCCESS;
     }
 }
-?>
