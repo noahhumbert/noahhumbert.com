@@ -19,6 +19,7 @@ class RemoveRoleType extends AbstractType
                 'choices' => [
                     'ROLE_ADMIN'   => 'ROLE_ADMIN',
                     'ROLE_USER'    => 'ROLE_USER',
+                    'ROLE_TUNEDGPT' => 'ROLE_TUNEDGPT',
                 ],
                 'label' => false,
             ]);
