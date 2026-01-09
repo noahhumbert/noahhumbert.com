@@ -44,9 +44,6 @@ class UserRoleController extends AbstractController
             return $this->json(['error' => 'User not found'], 404);
         }
 
-        // --- CLEAR USER CACHE ---
-        $entityManager->refresh($user);
-
         // --- VERIFY PASSWORD ---
         if (!$passwordHasher->isPasswordValid($user, $password)) {
             return $this->json(['error' => 'Invalid credentials'], 401);
