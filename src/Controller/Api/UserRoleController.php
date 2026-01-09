@@ -16,7 +16,8 @@ class UserRoleController extends AbstractController
     public function checkRole(
         Request $request,
         UserRepository $userRepository,
-        UserPasswordHasherInterface $passwordHasher
+        UserPasswordHasherInterface $passwordHasher,
+        EntityManagerInterface $entityManager
     ): JsonResponse {
         // --- TOKEN CHECK ---
         $token = $request->headers->get('X-API-TOKEN');
@@ -40,6 +41,9 @@ class UserRoleController extends AbstractController
         if (!$user) {
             return $this->json(['error' => 'User not found'], 404);
         }
+
+        // --- CLEAR USER CACHE ---
+        $entityManager->refresh($user);
 
         // --- VERIFY PASSWORD ---
         if (!$passwordHasher->isPasswordValid($user, $password)) {
