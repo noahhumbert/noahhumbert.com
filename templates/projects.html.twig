@@ -72,6 +72,33 @@
             </div>
         </div>
 
+        <!-- TunedGPT -->
+        <div class="container my-5">
+            <div class="row justify-content-center mb-2">
+                <div class="col-12 col-lg-10">
+                    <div class="card" style="max-width: auto;">
+                        <div class="row g-0">
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="fs-2 mb-4">TunedGPT</h5>
+                                    <p class="fs-6">
+                                        I have finished rebuilding an app I wrote about 2 years ago now. The whole idea of this app was to have a custom UI of ChatGPT.
+                                        It went from an app that ran a Flask Python dev environment on a windows server box in AWS to a containerized Flask webapp that
+                                        implements best practice and SQL tables to manage data. I am very proud of this rebuild even though it isn't much of an app. The
+                                        idea behind it and it being available to use holds sentimental value to me.
+                                    </p>
+                                    <a class="btn btn-primary" href=" {{ path('tunedgpt') }} ">Learn More</a>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <img src=" {{ asset('images/tunedgpt.png') }} " class="card-img-top" alt="noahhumbert.com">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Javascript -->
         <script src="{{ asset('bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     </body>
