@@ -13,16 +13,9 @@
                 <a class="btn btn-primary align-self-end" href=" {{ path('admin') }} " role="button">Admin</a>
             </div>
         {% else %}
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle d-grid gap-2 d-md-flex justify-content-md-end" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Profile
-            </button>
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href=" {{ path('dashboard') }} ">Dashboard</a></li>
-                <li><a class="dropdown-item" href="#">Account Settings</a></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-        </div>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <a class="btn btn-primary align-self-end" href=" {{ path('dashboard') }} " role="button">Dashboard</a>
+            </div>
         {% endif %}
     </div>
 </nav>
