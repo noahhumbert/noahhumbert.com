@@ -40,6 +40,9 @@ class RegistrationController extends AbstractController
             $entityManager->persist($user);
             $entityManager->flush();
 
+            // log
+            $this->container->get('logger')->critical('REGISTER: about to send verification email');
+
             // generate a signed url and email it to the user
             $this->emailVerifier->sendEmailConfirmation('app_verify_email', $user,
                 (new TemplatedEmail())
@@ -48,6 +51,9 @@ class RegistrationController extends AbstractController
                     ->subject('Please Confirm your Email')
                     ->htmlTemplate('registration/confirmation_email.html.twig')
             );
+
+            // log
+            $this->container->get('logger')->critical('REGISTER: verification email sent');
 
             // do anything else you need here, like send an email
 
