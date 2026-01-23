@@ -23,14 +23,9 @@ class EmailVerifier
     {
         $signatureComponents = $this->verifyEmailHelper->generateSignature(
             $verifyEmailRouteName,
-<<<<<<< Updated upstream
-            $user->getId(),
-            $user->getEmail()
-=======
             (string) $user->getId(),
             (string) $user->getEmail(),
             ['id' => $user->getId()]
->>>>>>> Stashed changes
         );
 
         $context = $email->getContext();
