@@ -9,6 +9,8 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\UserRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+use Doctrine\ORM\EntityManagerInterface;
+
 
 class UserRoleController extends AbstractController
 {
@@ -16,7 +18,8 @@ class UserRoleController extends AbstractController
     public function checkRole(
         Request $request,
         UserRepository $userRepository,
-        UserPasswordHasherInterface $passwordHasher
+        UserPasswordHasherInterface $passwordHasher,
+        EntityManagerInterface $entityManager
     ): JsonResponse {
         // --- TOKEN CHECK ---
         $token = $request->headers->get('X-API-TOKEN');

@@ -7,7 +7,30 @@
     <body>
         <!-- Navbar -->
         {% include 'partials/_navbar.html.twig' %}
-    
+
+        {% if not app.user.isVerified %}
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 text-center">
+                    <h2>Please Verify your Email</h2>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-12 text-center justify-content-center">
+                    <a class="btn btn-primary" href="{{ path('send_verification') }}">Verify Email</a>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 text-center">
+                    <h1>Dashboard Coming Soon</h1>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
         <!-- Javascript -->
         <script src="{{ asset('bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     </body>
