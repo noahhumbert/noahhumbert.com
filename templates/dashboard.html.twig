@@ -8,6 +8,12 @@
         <!-- Navbar -->
         {% include 'partials/_navbar.html.twig' %}
 
+        {% if app.user and app.user.isVerified %}
+            <h1>Verified</h1>
+        {% else %}
+            <a class="btn btn-primary" href="{{ path('app_verify_email') }}"
+        {% endif %}
+
         <!-- Javascript -->
         <script src="{{ asset('bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     </body>
