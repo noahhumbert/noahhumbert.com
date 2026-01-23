@@ -1,11 +1,34 @@
-<h1>Hi! Please confirm your email!</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Verify Your Email</title>
+    <style>
+        /* Minimal Bootstrap-inspired styles */
+        body { font-family: Arial, sans-serif; font-size:16px; color:#333; margin:0; padding:0; }
+        .container { max-width:600px; margin:0 auto; padding:20px; }
+        .btn { display:inline-block; font-weight:400; color:#fff; text-align:center; text-decoration:none; vertical-align:middle; user-select:none; background-color:#0d6efd; padding:10px 20px; font-size:16px; border-radius:0.25rem; }
+        .btn:hover { background-color:#0b5ed7; }
+        .text-muted { color:#6c757d; font-size:12px; }
+        p { margin:0 0 15px 0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p>Hi {{ user.username }},</p>
 
-<p>
-    Please confirm your email address by clicking the following link: <br><br>
-    <a href="{{ signedUrl|raw }}">Confirm my Email</a>.
-    This link will expire in {{ expiresAtMessageKey|trans(expiresAtMessageData, 'VerifyEmailBundle') }}.
-</p>
+        <p>Thanks for signing up! Please verify your email address by clicking the button below:</p>
 
-<p>
-    Cheers!
-</p>
+        <p>
+            <a href="{{ signedUrl|raw }}" class="btn">Verify Email</a>
+        </p>
+
+        <p>If the button doesn’t work, copy and paste this link into your browser:</p>
+        <p style="word-break: break-word;">{{ signedUrl|raw }}</p>
+
+        <p>Welcome,<br>The Noah Humbert Team</p>
+
+        <p class="text-muted">If you did not sign up, you can safely ignore this email.</p>
+    </div>
+</body>
+</html>
