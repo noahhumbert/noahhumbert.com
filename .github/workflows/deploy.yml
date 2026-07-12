@@ -11,4 +11,4 @@ jobs:
     steps:
       - name: Deploy via SSH
         run: |
-          docker compose -p prod -f compose.prod.yaml up -d --build
+          docker compose -p prod -f /var/www/noahhumbert.com/compose.prod.yaml up -d --build
